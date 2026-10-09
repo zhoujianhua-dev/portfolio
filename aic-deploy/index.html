@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>多智能体协同软件开发工作台 · 作品展示</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E1A2F'/%3E%3Ccircle cx='12' cy='16' r='4.2' fill='%234FD1C5'/%3E%3Ccircle cx='22' cy='9' r='3.4' fill='%23E8B45A'/%3E%3Ccircle cx='22' cy='23' r='3.4' fill='%23E8B45A'/%3E%3Cpath d='M14.8 14.6l5-3.9M14.8 17.4l5 3.9' stroke='%23fff' stroke-width='1.6'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0A1120; --bg2:#0E1A2F; --surface:#111F36; --surface2:#16233C;
+  --line:#223252; --line2:#2E4060; --txt:#EAF2FF; --txt2:#A9BBD8; --txt3:#6E84A6;
+  --teal:#4FD1C5; --teal-dim:rgba(79,209,197,.08); --amber:#E8B45A;
+  --mono:"Cascadia Code","Consolas","SF Mono",monospace;
+  --r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+a{color:var(--teal);text-decoration:none;transition:color .2s}
+a:hover{color:#8FE8DF}
+
+/* ===== Hero ===== */
+.hero{padding:72px 0 48px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(700px 340px at 82% -10%,rgba(79,209,197,.10),transparent 60%),
+  radial-gradient(620px 300px at 12% 110%,rgba(232,180,90,.08),transparent 60%);pointer-events:none}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--teal);text-transform:uppercase}
+h1{font-size:clamp(30px,4.6vw,46px);font-weight:900;line-height:1.25;margin-top:14px;letter-spacing:.5px}
+h1 .accent{color:var(--teal)}
+.sub{margin-top:16px;color:var(--txt2);font-size:15.5px;max-width:820px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.badge{font-family:var(--mono);font-size:11.5px;color:var(--amber);border:1px solid rgba(232,180,90,.4);background:rgba(232,180,90,.07);padding:4px 12px;border-radius:20px}
+.badge.teal{color:var(--teal);border-color:rgba(79,209,197,.4);background:var(--teal-dim)}
+
+/* ===== Section ===== */
+section{padding:26px 0 10px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+.sec-idx{font-family:var(--mono);font-size:12px;color:var(--teal);letter-spacing:.12em}
+h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
+.sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--line2),transparent)}
+
+/* ===== 成绩条 ===== */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat b{font-size:19px}.stat span{font-size:12px}}
+.stat{border:1px solid var(--line);border-radius:var(--r);padding:18px 16px;background:linear-gradient(180deg,var(--surface2),var(--bg2));transition:transform .2s,border-color .2s}
+.stat:hover{transform:translateY(-2px);border-color:rgba(79,209,197,.5)}
+.stat b{display:block;font-size:22px;color:var(--teal);font-weight:900;letter-spacing:.5px}
+.stat span{display:block;margin-top:6px;font-size:12.5px;color:var(--txt3)}
+
+/* ===== 表格 ===== */
+.table-wrap{border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13.5px}
+colgroup col:nth-child(1){width:22%}
+colgroup col:nth-child(2){width:38%}
+colgroup col:nth-child(3){width:40%}
+th{background:var(--surface2);color:var(--txt3);font-weight:600;text-align:left;padding:11px 16px;font-size:12px;letter-spacing:.06em}
+td{padding:11px 16px;border-top:1px solid var(--line);color:var(--txt2)}
+td.mono{font-family:var(--mono);font-size:12px;color:var(--txt3)}
+tr:hover td{background:rgba(79,209,197,.04)}
+
+/* ===== 图片 ===== */
+.fig{margin-top:16px}
+.fig img{width:100%;border:1px solid var(--line);border-radius:var(--r);display:block;background:var(--bg2)}
+.fig .cap{margin-top:9px;font-size:13px;color:var(--txt3);text-align:center}
+.fig-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fig-grid .fig{margin-top:0}
+@media (max-width:720px){.fig-grid{grid-template-columns:1fr}}
+
+/* ===== 卡片 ===== */
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:6px}
+@media (max-width:720px){.grid3{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:var(--r);padding:18px;background:var(--surface);transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-2px);border-color:rgba(79,209,197,.45)}
+.card h3{font-size:15px;color:var(--teal);margin-bottom:8px}
+.card p{font-size:13.5px;color:var(--txt2)}
+
+/* ===== 链接区 ===== */
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.link-btn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:12px 22px;border-radius:10px;border:1px solid var(--line2);background:var(--surface);color:var(--txt);transition:all .2s}
+.link-btn:hover{transform:translateY(-1px);border-color:var(--teal);color:#fff}
+.link-btn.primary{background:linear-gradient(135deg,#1A6E66,#2FB5AA);border-color:transparent;color:#fff}
+.link-btn.primary:hover{filter:brightness(1.1)}
+.link-btn .ico{flex:0 0 auto}
+
+/* ===== 页脚 ===== */
+footer{margin-top:60px;padding:26px 0 40px;border-top:1px solid var(--line)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-inner .mono{font-family:var(--mono);font-size:11.5px;color:var(--txt3)}
+.owner-note{margin-top:18px;padding:13px 18px;border-left:3px solid var(--amber);background:rgba(232,180,90,.06);border-radius:0 10px 10px 0;font-size:13.5px;color:var(--txt2)}
+.owner-note b{color:var(--amber)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">AIC · Algorithm Elite Competition · Agent Interconnect</div>
+    <h1>多智能体协同软件开发工作台</h1>
+    <p class="sub">基于 <span style="color:var(--txt)">AIP 国家标准（GB/Z 185《人工智能 智能体互联》）</span>构建的多智能体系统：1 个「软件任务主控」Leader 将软件开发任务按 <b style="color:var(--txt)">需求分析 → 架构设计 → 代码审查 / 测试设计 → 文档生成</b> 全流程拆解，协同 5 个专职 Partner 智能体完成，输出可落地的工程交付物。6 个智能体全部部署在云端服务器，7×24 持续在线。</p>
+    <div class="badges">
+      <span class="badge teal">第八届全球校园人工智能算法精英大赛</span>
+      <span class="badge teal">算法主题赛 · 智能体互联</span>
+      <span class="badge">团队码 NMLQ3K</span>
+      <span class="badge">1 Leader + 5 Partner</span>
+      <span class="badge">AIP 国标 · GB/Z 185</span>
+      <span class="badge teal">作者一人独立完成全部开发</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 实测成绩 -->
+  <section>
+    <div class="sec-head"><span class="sec-idx">01 · RESULTS</span><h2>四榜实测成绩（梧桐平台实时数据）</h2><div class="sec-line"></div></div>
+    <div class="stats">
+      <div class="stat"><b>第 1 名</b><span>调用榜 caller（含内部）<br>主控 1334 次</span></div>
+      <div class="stat"><b>第 1 名</b><span>调用榜 callerNonInternal（不含内部）<br>主控 1227 次</span></div>
+      <div class="stat"><b>第 1–6 名</b><span>被调用榜双榜<br>5 个子智能体 246–268 次</span></div>
+      <div class="stat"><b>外部真实调用</b><span>「不含内部调用」两榜非零<br>已被团队外部调用</span></div>
+    </div>
+  </section>
+
+  <!-- 智能体清单 -->
+  <section>
+    <div class="sec-head"><span class="sec-idx">02 · AGENTS</span><h2>智能体清单（6 个 · AIP 标准）</h2><div class="sec-line"></div></div>
+    <div class="table-wrap">
+      <table>
+        <colgroup><col><col><col></colgroup>
+        <thead><tr><th>角色</th><th>名称</th><th>AIC 编号</th></tr></thead>
+        <tbody>
+          <tr><td>主控（Leader）</td><td>软件开发任务主控智能体</td><td class="mono">…NMLQ3K.71DG28.S7TATG.0WXB</td></tr>
+          <tr><td>需求分析</td><td>需求分析师智能体</td><td class="mono">…NMLQ3K.HH1098.OJ1Q6D.06A9</td></tr>
+          <tr><td>架构设计</td><td>架构设计师智能体</td><td class="mono">…NMLQ3K.C9Z1N0.51CG1S.100U</td></tr>
+          <tr><td>代码审查</td><td>代码审查师智能体</td><td class="mono">…NMLQ3K.2EJ55A.EGP7TY.035Y</td></tr>
+          <tr><td>测试设计</td><td>测试设计师智能体</td><td class="mono">…NMLQ3K.W7WY1V.2BRQ1W.0SV7</td></tr>
+          <tr><td>文档生成</td><td>文档工程师智能体</td><td class="mono">…NMLQ3K.WHVAY8.F1OM44.036N</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 架构与流程 -->
+  <section>
+    <div class="sec-head"><span class="sec-idx">03 · ARCHITECTURE</span><h2>系统架构与协同流程</h2><div class="sec-line"></div></div>
+    <div class="fig-grid">
+      <figure class="fig"><img src="img/arch.png" alt="系统架构图"><figcaption class="cap">系统架构图 · 用户层 / 编排层 / 能力层 / 平台层</figcaption></figure>
+      <figure class="fig"><img src="img/flow.png" alt="协同流程图"><figcaption class="cap">多智能体协同流程图 · 需求 → 架构 → 审查 / 测试 → 文档</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 实测佐证 -->
+  <section>
+    <div class="sec-head"><span class="sec-idx">04 · EVIDENCE</span><h2>实测佐证（实时数据 · 可复现）</h2><div class="sec-line"></div></div>
+    <div class="fig-grid">
+      <figure class="fig"><img src="img/rank.png" alt="四榜排名总览"><figcaption class="cap">四榜排名总览 · 主控调用双榜第 1</figcaption></figure>
+      <figure class="fig"><img src="img/calls.png" alt="调用量对比"><figcaption class="cap">调用量对比图 · 各智能体被调用次数</figcaption></figure>
+      <figure class="fig"><img src="img/e2e.png" alt="端到端实测"><figcaption class="cap">端到端实测示意图 · 真实任务全链路</figcaption></figure>
+      <figure class="fig"><img src="img/server.png" alt="服务器常驻运行"><figcaption class="cap">服务器 7×24 持续在线运行佐证</figcaption></figure>
+      <figure class="fig"><img src="img/agents.png" alt="六智能体调用验证"><figcaption class="cap">六智能体真实调用验证 · 全部可调通</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 技术亮点 -->
+  <section>
+    <div class="sec-head"><span class="sec-idx">05 · HIGHLIGHTS</span><h2>核心技术与创新</h2><div class="sec-line"></div></div>
+    <div class="grid3">
+      <div class="card"><h3>AIP 国标全流程</h3><p>ATR 可信注册（6 智能体 APPROVED）→ ADP 自动发现 → Direct RPC + Group AMQP 双通道通信 → AMP 心跳持续上报（Kafka），平台可实时查询存活状态与访问日志。</p></div>
+      <div class="card"><h3>创新① 存活感知路由</h3><p>HealthAwareSelector：编排执行前基于心跳 / 发现存活状态做健康过滤，离线维度自动降级由 Leader 兜底，避免任务派发给离线智能体造成不可控超时。</p></div>
+      <div class="card"><h3>创新② 双通道容错执行</h3><p>DualChannelExecutor：Direct RPC（HTTPS / JSON-RPC over mTLS）为主通道，失败毫秒级自动降级到 Group AMQP 群组会话，双通道均失败返回结构化失败信息供编排层决策。</p></div>
+      <div class="card"><h3>安全传输</h3><p>AMQPS（vhost=acps）+ mTLS 双向认证；源码包仅含 CA 公钥，私钥与客户端证书仅部署在服务器。</p></div>
+      <div class="card"><h3>7×24 常驻</h3><p>systemd 托管、开机自启、崩溃自动重启；本地关机不影响他人调用，6 智能体持续在线。</p></div>
+      <div class="card"><h3>可复现验证</h3><p>测试脚本 e2e_test / capture_reply / check_consumers 可连接真实 broker 复现端到端协同结果。</p></div>
+    </div>
+  </section>
+
+  <!-- 归属 -->
+  <div class="owner-note"><b>作品归属说明：</b>本作品由 <b>周建华</b>（宁波财经学院 · 计算机科学与技术 · 网络安全方向）<b>一人独立完成全部开发</b>，包括 6 个智能体的系统设计、全部代码实现、ACS 能力描述（AIP 国标）、部署与测试脚本、端到端实测，以及全部参赛交付材料（技术报告、答辩 PPT、演示视频、佐证材料）。</div>
+
+  <!-- 链接 -->
+  <div class="links">
+    <a class="link-btn primary" href="tech-report.html" target="_blank" rel="noopener">
+      <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15h6M9 11h2"/></svg>
+      查看完整技术报告
+    </a>
+    <a class="link-btn" href="https://github.com/zhoujianhua-dev/MultiAgent-DevWorkbench" target="_blank" rel="noopener">
+      <svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+      GitHub 源码仓库
+    </a>
+    <a class="link-btn" href="../" target="_blank" rel="noopener">返回作品集首页</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>多智能体协同软件开发工作台 · 竞赛作品展示</div>
+    <div class="mono">AIC WORKBENCH · TEAM NMLQ3K · ZHOU JIANHUA · 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>

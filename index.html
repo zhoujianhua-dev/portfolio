@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>周建华 · 作品集 | 网络安全 × 大模型应用</title>
+<meta name="description" content="周建华 · 宁波财经学院计算机科学与技术（网络安全方向）。企业安全服务项目经验、多次网络安保活动历练、全国赛智能体调用榜双榜第 1。作品：智安盾（RAG 漏洞报告生成）、多智能体协同软件开发工作台、360 纳米 Work AI Agent。">
+<meta property="og:title" content="周建华 · 作品集 | 网络安全 × 大模型应用">
+<meta property="og:description" content="网络安全 × AI · 企业安全服务经验 · 全国赛双榜第 1 · 承接相关项目">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/avatar-v3-duo.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230E1A2F'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%234FD1C5' font-family='monospace' font-weight='bold'%3EZ%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0A1120; --bg2:#0E1A2F; --surface:#111F36; --surface2:#16233C;
+  --line:#223252; --line2:#2E4060; --txt:#EAF2FF; --txt2:#A9BBD8; --txt3:#6E84A6;
+  --teal:#4FD1C5; --teal-dim:rgba(79,209,197,.08); --amber:#E8B45A;
+  --mono:"Cascadia Code","Consolas","SF Mono",monospace;
+  --r:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+a{color:var(--teal);text-decoration:none;transition:color .2s}
+a:hover{color:#8FE8DF}
+::selection{background:rgba(79,209,197,.25)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line2);border-radius:6px}
+::-webkit-scrollbar-thumb:hover{background:#3A5078}
+
+/* ===== 接单横幅 ===== */
+.ticker{text-align:center;font-family:var(--mono);font-size:11.5px;color:var(--teal);background:rgba(79,209,197,.07);border-bottom:1px solid var(--line);padding:7px 14px;letter-spacing:.02em}
+.ticker .pre{color:var(--amber)}
+
+/* ===== 导航 ===== */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(10,17,32,.75);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:0 28px;height:58px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--mono);font-weight:800;font-size:20px;color:var(--txt);letter-spacing:1px}
+.logo b{color:var(--teal)}
+.logo small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--txt3);letter-spacing:.06em;font-weight:600;margin-top:1px}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{font-size:13.5px;color:var(--txt2);font-weight:500}
+.nav-links a:hover{color:var(--teal)}
+.nav-links a.active{color:var(--teal)}
+.nav-links a.active::after{content:"";display:block;height:2px;margin:2px 4px 0;border-radius:2px;background:linear-gradient(90deg,var(--teal),transparent)}
+.nav-links .gh{font-family:var(--mono);font-size:12.5px;color:var(--amber);border:1px solid rgba(232,180,90,.4);padding:4px 12px;border-radius:20px}
+.nav-links .gh:hover{background:rgba(232,180,90,.08);color:var(--amber)}
+
+/* ===== Hero ===== */
+.hero{padding:86px 0 54px;position:relative;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;opacity:.55}
+.orb-1{width:420px;height:420px;background:radial-gradient(circle,rgba(79,209,197,.16),transparent 65%);top:-120px;right:-80px;animation:float1 11s ease-in-out infinite}
+.orb-2{width:380px;height:380px;background:radial-gradient(circle,rgba(232,180,90,.12),transparent 65%);bottom:-140px;left:-90px;animation:float2 13s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(-28px,24px)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(24px,-20px)}}
+.hero .wrap{position:relative}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--teal);text-transform:uppercase;animation:fadeUp .7s .05s both}
+.avatar{width:86px;height:86px;border-radius:50%;object-fit:cover;display:block;margin-bottom:16px;border:2px solid rgba(79,209,197,.6);box-shadow:0 0 0 5px rgba(79,209,197,.09),0 8px 26px rgba(0,0,0,.4);animation:fadeUp .7s 0s both}
+h1{font-size:clamp(32px,5vw,50px);font-weight:900;line-height:1.22;margin-top:14px;letter-spacing:.5px;animation:fadeUp .7s .15s both}
+h1 .accent{background:linear-gradient(95deg,#4FD1C5 10%,#8FE8DF 55%,#E8B45A 110%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin-top:16px;color:var(--txt2);font-size:15.5px;max-width:820px;animation:fadeUp .7s .25s both}
+.sub b{color:var(--txt)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;animation:fadeUp .7s .35s both}
+.badge{font-family:var(--mono);font-size:11.5px;color:var(--amber);border:1px solid rgba(232,180,90,.4);background:rgba(232,180,90,.07);padding:4px 12px;border-radius:20px}
+.badge.teal{color:var(--teal);border-color:rgba(79,209,197,.4);background:var(--teal-dim)}
+.hero-cta{display:flex;gap:12px;margin-top:26px;animation:fadeUp .7s .45s both}
+.cta{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:12px 26px;border-radius:11px;transition:all .2s}
+.cta.primary{background:linear-gradient(135deg,#1A6E66,#2FB5AA);color:#fff;box-shadow:0 4px 22px rgba(47,181,170,.28)}
+.cta.primary:hover{filter:brightness(1.12);transform:translateY(-2px)}
+.cta.ghost{border:1px solid var(--line2);color:var(--txt)}
+.cta.ghost:hover{border-color:var(--teal);color:#fff;transform:translateY(-2px)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== 终端卡 ===== */
+.term{background:rgba(13,22,40,.92);border:1px solid var(--line2);border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.45);overflow:hidden;animation:fadeUp .7s .55s both;font-family:var(--mono)}
+.term-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:rgba(22,35,60,.9);border-bottom:1px solid var(--line)}
+.term-bar i{width:11px;height:11px;border-radius:50%}
+.term-bar i:nth-child(1){background:#E0655F}
+.term-bar i:nth-child(2){background:#E8B45A}
+.term-bar i:nth-child(3){background:#57C08A}
+.term-bar span{margin-left:8px;font-size:11px;color:var(--txt3)}
+.term-body{padding:16px 18px;font-size:12.5px;line-height:2.05}
+.term-body .c{color:var(--txt3)}
+.term-body .p{color:var(--amber)}
+.term-body .o{color:var(--teal)}
+.term-body .cursor{display:inline-block;width:8px;height:14px;background:var(--teal);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (max-width:940px){.hero-grid{grid-template-columns:1fr}.term{display:none}}
+
+/* ===== 数据条 ===== */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:34px 0 8px}
+.stat{border:1px solid var(--line);border-radius:var(--r);padding:18px 16px;background:linear-gradient(180deg,var(--surface2),var(--bg2));transition:transform .2s,border-color .2s}
+.stat:hover{transform:translateY(-2px);border-color:rgba(79,209,197,.5)}
+.stat b{display:block;font-size:22px;color:var(--teal);font-weight:900;letter-spacing:.5px}
+.stat span{display:block;margin-top:6px;font-size:12.5px;color:var(--txt3)}
+
+/* ===== Section ===== */
+section{padding:30px 0 10px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+.sec-idx{font-family:var(--mono);font-size:12px;color:var(--teal);letter-spacing:.12em}
+h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
+.sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--line2),transparent)}
+
+/* ===== 作品卡 ===== */
+.works{display:flex;flex-direction:column;gap:18px;margin-top:6px}
+.work{border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(180deg,var(--surface2),var(--bg2));padding:28px 30px;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative;overflow:hidden}
+.work::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--teal),transparent)}
+.work::after{content:attr(data-no);position:absolute;right:14px;top:-14px;font-family:var(--mono);font-size:92px;font-weight:900;color:rgba(79,209,197,.05);pointer-events:none;line-height:1}
+.work:hover{transform:translateY(-3px);border-color:rgba(79,209,197,.5);box-shadow:0 14px 44px rgba(0,0,0,.35)}
+.work-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+.work-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px;position:relative}
+.work-ico{flex:0 0 auto;width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--teal-dim);border:1px solid rgba(79,209,197,.35)}
+.work h3{font-size:clamp(17px,2.2vw,21px);font-weight:800}
+.comp{font-size:12px;color:var(--amber);border:1px solid rgba(232,180,90,.35);background:rgba(232,180,90,.06);padding:2px 10px;border-radius:20px;font-family:var(--mono)}
+.work p{margin-top:12px;color:var(--txt2);font-size:14px;position:relative}
+.work p b{color:var(--txt)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;position:relative}
+.chip{font-family:var(--mono);font-size:11.5px;color:var(--teal);border:1px solid rgba(79,209,197,.35);background:var(--teal-dim);padding:3px 11px;border-radius:20px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px;position:relative}
+.tag{font-size:11.5px;color:var(--txt3);border:1px solid var(--line);padding:2px 10px;border-radius:20px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;position:relative}
+.link-btn{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;padding:9px 18px;border-radius:10px;border:1px solid var(--line2);background:var(--surface);color:var(--txt);transition:all .2s}
+.link-btn:hover{transform:translateY(-1px);border-color:var(--teal);color:#fff}
+.link-btn.primary{background:linear-gradient(135deg,#1A6E66,#2FB5AA);border-color:transparent;color:#fff}
+.link-btn.primary:hover{filter:brightness(1.1)}
+.link-btn.dim{opacity:.55;cursor:default}
+.link-btn.dim:hover{transform:none;border-color:var(--line2);color:var(--txt)}
+.work.alt::before{background:linear-gradient(180deg,var(--amber),transparent)}
+.work.alt .work-ico{background:rgba(232,180,90,.08);border-color:rgba(232,180,90,.4)}
+.mock{border:1px solid var(--line2);border-radius:12px;overflow:hidden;background:var(--bg);box-shadow:0 12px 34px rgba(0,0,0,.4);transition:transform .3s}
+.work:hover .mock{transform:translateY(-4px) rotate(-.5deg)}
+.mock-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:var(--surface2);border-bottom:1px solid var(--line)}
+.mock-bar i{width:8px;height:8px;border-radius:50%;background:var(--line2)}
+.mock-bar span{margin-left:6px;font-family:var(--mono);font-size:10px;color:var(--txt3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mock img{display:block;width:100%}
+.mock-body{padding:16px;display:flex;align-items:center;gap:16px}
+.score-ring{width:76px;height:76px;border-radius:50%;background:conic-gradient(var(--amber) 0 92%,var(--line) 0);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.score-ring .in{width:56px;height:56px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center}
+.score-ring b{font-family:var(--mono);font-size:19px;color:var(--amber)}
+.mock-bars{flex:1;display:flex;flex-direction:column;gap:8px}
+.mb{height:6px;border-radius:6px;background:var(--bg2);overflow:hidden}
+.mb i{display:block;height:100%;background:linear-gradient(90deg,#8A6A2F,var(--amber))}
+.mock-line{font-family:var(--mono);font-size:10px;color:var(--txt3);margin-top:12px}
+@media (max-width:900px){.work-grid{grid-template-columns:1fr}.work-visual{order:-1}}
+
+/* ===== 双栏卡容器 ===== */
+.duo{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-top:6px}
+.card{border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;background:var(--surface);transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-2px);border-color:rgba(79,209,197,.45)}
+.card h3{font-size:15px;color:var(--teal);margin-bottom:10px}
+.card p{font-size:13.5px;color:var(--txt2)}
+.card p b{color:var(--txt)}
+
+/* ===== 安保时间线(紧凑) ===== */
+.mtl{display:flex;flex-direction:column;gap:0;margin-top:4px}
+.mtl .row{display:flex;gap:12px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:12.5px}
+.mtl .row:last-child{border-bottom:none}
+.mtl .d{flex:0 0 64px;font-family:var(--mono);color:var(--amber);font-size:11.5px;padding-top:1px}
+.mtl .e{color:var(--txt2)}
+.mtl .e b{color:var(--txt)}
+
+/* ===== 工作履历 ===== */
+.job{border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(180deg,var(--surface2),var(--bg2));padding:24px 26px;position:relative;overflow:hidden;margin-bottom:14px;transition:transform .2s,border-color .2s}
+.job:hover{transform:translateY(-2px);border-color:rgba(79,209,197,.4)}
+.job::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--teal),transparent)}
+.job-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.job h3{font-size:16.5px;font-weight:800}
+.job .where{font-size:12px;color:var(--txt3)}
+.job ul{margin-top:12px;list-style:none;display:flex;flex-direction:column;gap:7px}
+.job li{font-size:13.5px;color:var(--txt2);padding-left:18px;position:relative}
+.job li::before{content:"›";position:absolute;left:0;color:var(--teal);font-weight:800}
+.job li b{color:var(--txt)}
+
+/* ===== 资质 & 荣誉 ===== */
+.chips-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.cchip{font-size:12px;color:var(--txt2);border:1px solid var(--line2);background:var(--surface);padding:5px 13px;border-radius:20px;transition:all .2s}
+.cchip:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-1px)}
+.hgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:4px}
+.honor{border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--surface);transition:all .2s}
+.honor:hover{border-color:rgba(232,180,90,.5);transform:translateY(-1px)}
+.honor b{display:block;font-size:13px;color:var(--txt)}
+.honor span{display:block;font-size:11px;color:var(--txt3);margin-top:3px;font-family:var(--mono)}
+
+/* ===== 技能条 ===== */
+.skill{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:12.5px;color:var(--txt2)}
+.skill span:first-child{flex:0 0 130px}
+.bar{flex:1;height:6px;border-radius:6px;background:var(--bg2);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,#1A6E66,var(--teal));transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
+
+/* ===== 页脚 ===== */
+footer{margin-top:64px;padding:30px 0 44px;border-top:1px solid var(--line);position:relative}
+footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-inner .mono{font-family:var(--mono);font-size:11.5px;color:var(--txt3)}
+.footer-cta{text-align:center;margin-bottom:26px}
+.footer-cta h3{font-size:clamp(18px,2.4vw,24px);font-weight:800}
+.footer-cta p{font-size:13.5px;color:var(--txt3);margin-top:6px}
+#topBtn{position:fixed;right:26px;bottom:26px;width:44px;height:44px;border-radius:12px;border:1px solid var(--line2);background:rgba(17,31,54,.9);backdrop-filter:blur(8px);color:var(--teal);font-size:18px;cursor:pointer;opacity:0;pointer-events:none;transition:all .3s;z-index:60}
+#topBtn.show{opacity:1;pointer-events:auto}
+#topBtn:hover{border-color:var(--teal);transform:translateY(-2px)}
+
+/* ===== 滚动入场 ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media (max-width:720px){
+  .duo{grid-template-columns:1fr}
+  .work{padding:20px 18px}
+  .job{padding:18px 16px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat b{font-size:19px}.stat span{font-size:12px}
+  .nav-links{gap:14px}
+  .nav-links a:not(.gh){display:none}
+  .logo{font-size:17px}
+  .ticker{font-size:10.5px}
+  .hgrid{grid-template-columns:1fr}
+  .skill span:first-child{flex:0 0 104px;font-size:12px}
+  #topBtn{right:16px;bottom:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="ticker"><span class="pre">项目承接方向：</span>网络安全 · FDE 前沿部署 · 软件开发 · 小程序开发 · 网站开发 · 爬虫 · 其他计算机相关项目均可承接</div>
+
+<nav>
+  <div class="nav-inner">
+    <span class="logo">ZJH<b>.</b></span>
+    <div class="nav-links">
+      <a href="#works">作品</a>
+      <a href="#secops">实战</a>
+      <a href="#career">履历</a>
+      <a href="#honors">荣誉</a>
+      <a href="#about">关于</a>
+      <a class="gh" href="https://github.com/zhoujianhua-dev" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="wrap hero-grid">
+   <div class="hero-txt">
+    <img class="avatar" src="assets/avatar.jpg" alt="周建华">
+    <div class="kicker">Zhou Jianhua · Portfolio · Security × AI · 承接相关项目</div>
+    <h1>你好，我是<span class="accent"> 周建华</span></h1>
+    <p class="sub">宁波财经学院 · 计算机科学与技术（网络安全方向）· 中共预备党员。专注 <b>AI 与安全结合的工程落地</b>：有<b>多份企业级漏洞报告</b>的实战沉淀、<b>多次网络安保活动</b>历练，以及从智能漏洞报告生成、360 纳米 Work 跨境电商 Agent 到多智能体协同开发的 <b>LLM 工程化</b>实践。</p>
+    <div class="badges">
+      <span class="badge teal">宁波财经学院 · 计算机科学与技术</span>
+      <span class="badge teal">网络安全方向</span>
+      <span class="badge">中共预备党员</span>
+      <span class="badge">大模型应用 · RAG · 多智能体</span>
+      <span class="badge">NISP Ⅱ 持证</span>
+    </div>
+    <div class="hero-cta">
+      <a class="cta primary" href="#works">查看我的作品 ↓</a>
+      <a class="cta ghost" href="assets/resume-zhoujianhua.pdf" target="_blank" rel="noopener">📄 下载简历 PDF</a>
+      <a class="cta ghost" href="https://github.com/zhoujianhua-dev" target="_blank" rel="noopener">GitHub 主页</a>
+    </div>
+   </div>
+   <div class="term">
+    <div class="term-bar"><i></i><i></i><i></i><span>zjh@portfolio: ~</span></div>
+    <div class="term-body">
+      <div><span class="p">$</span> whoami</div>
+      <div><span class="o">zhou_jianhua</span> <span class="c">// 网络安全 × 大模型应用</span></div>
+      <div><span class="p">$</span> systemctl status security-ops</div>
+      <div><span class="o">● active</span> <span class="c">— security ops & AI projects</span></div>
+      <div><span class="p">$</span> systemctl status my-agents</div>
+      <div><span class="o">● active</span> <span class="c">— 6/6 agents online · 7×24 running</span></div>
+      <div><span class="p">$</span> <span class="cursor"></span></div>
+    </div>
+   </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 数据条 -->
+  <div class="stats reveal">
+    <div class="stat"><b>17 类</b><span>企业安全服务项目经历</span></div>
+    <div class="stat"><b>第 1 名</b><span>全国赛智能体调用榜双榜</span></div>
+    <div class="stat"><b>6 个</b><span>智能体云端 7×24 在线</span></div>
+    <div class="stat"><b>63.7s</b><span>AI Agent 物料包生成</span></div>
+  </div>
+
+  <!-- 作品 -->
+  <section id="works">
+    <div class="sec-head"><span class="sec-idx">01 · WORKS</span><h2>作品与项目</h2><div class="sec-line"></div></div>
+    <div class="works">
+
+      <article class="work reveal" data-no="01">
+        <div class="work-grid">
+        <div class="work-body">
+        <div class="work-top">
+          <span class="work-ico">🤖</span>
+          <h3>多智能体协同软件开发工作台</h3>
+          <span class="comp">第八届全球校园人工智能算法精英大赛 · 智能体互联</span>
+        </div>
+        <p>基于 AIP 国家标准（GB/Z 185）构建的多智能体系统：<b>1 个「软件任务主控」Leader</b> 将软件开发任务按 需求分析 → 架构设计 → 代码审查 / 测试设计 → 文档生成 全流程拆解，协同 <b>5 个专职 Partner 智能体</b>完成，输出可落地的工程交付物。<b>6 个智能体全部部署于云端，7×24 持续在线</b>，支持团队外部真实调用。</p>
+        <div class="chips">
+          <span class="chip">调用榜双榜第 1 名（主控 1334 次）</span>
+          <span class="chip">被调用榜包揽前列（246–268 次）</span>
+          <span class="chip">6 智能体全部可调通</span>
+          <span class="chip">端到端实测全链路</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">AMQP / mTLS</span><span class="tag">FastAPI</span><span class="tag">Kafka</span><span class="tag">systemd</span><span class="tag">AIP 国标</span><span class="tag">StepFun LLM</span>
+        </div>
+        <div class="links">
+          <a class="link-btn primary" href="aic-deploy/index.html">📊 项目展示页</a>
+          <a class="link-btn" href="https://github.com/zhoujianhua-dev/MultiAgent-DevWorkbench" target="_blank" rel="noopener">GitHub 源码</a>
+        </div>
+        </div>
+        <div class="work-visual">
+          <div class="mock">
+            <div class="mock-bar"><i></i><i></i><i></i><span>aic · 四榜实测成绩（梧桐平台实时数据）</span></div>
+            <img src="aic-deploy/img/rank.png" loading="lazy" alt="四榜排名总览">
+          </div>
+        </div>
+        </div>
+      </article>
+
+      <article class="work alt reveal" data-no="02">
+        <div class="work-grid">
+        <div class="work-body">
+        <div class="work-top">
+          <span class="work-ico">🛡️</span>
+          <h3>智安盾 · 智能漏洞报告自动化生成系统</h3>
+          <span class="comp">第九届浙江省大学生网络与信息安全竞赛 · 作品挑战赛</span>
+        </div>
+        <p>基于大模型与 <b>RAG 检索增强</b>的漏洞报告自动化生成系统（Python + Flask + SQLite）：<b>本地化部署、数据不出本机</b>。接入 Nuclei 等扫描器结果，AI 完成润色 / 摘要 / 资产分类，<b>九维加权规则引擎自动评分（0–100 分）+ AI 专家点评</b>，内置 <b>CVSS v3.1 标准评分器</b>（FIRST.org 公式）、自研 Word 模板逆向与占位符填充引擎，导出格式与送检模板一致。<b>报告系统本体（生成 / RAG / 评分 / 导出）由本人独立开发，漏扫接入模块由同学协作完成。</b></p>
+        <div class="chips">
+          <span class="chip">RAG 检索增强生成</span>
+          <span class="chip">九维加权质量体检</span>
+          <span class="chip">CVSS v3.1 标准评分</span>
+          <span class="chip">约 240 项测试用例</span>
+          <span class="chip">报告产出缩短至分钟级</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">RAG</span><span class="tag">LLM</span><span class="tag">Docker</span><span class="tag">CVSS v3.1</span><span class="tag">Nuclei</span>
+        </div>
+        <div class="links">
+          <a class="link-btn" href="https://github.com/zhoujianhua-dev/ZhiAnDun" target="_blank" rel="noopener">GitHub 源码</a>
+        </div>
+        </div>
+        <div class="work-visual">
+          <div class="mock">
+            <div class="mock-bar"><i></i><i></i><i></i><span>智安盾 · 报告质量体检</span></div>
+            <div class="mock-body">
+              <div class="score-ring"><div class="in"><b>92</b></div></div>
+              <div class="mock-bars">
+                <div class="mb"><i style="width:95%"></i></div>
+                <div class="mb"><i style="width:88%"></i></div>
+                <div class="mb"><i style="width:92%"></i></div>
+                <div class="mb"><i style="width:84%"></i></div>
+              </div>
+            </div>
+            <div class="mock-line" style="padding:0 16px 14px">CVSS v3.1 · 7.5 High · Word/PDF 导出就绪</div>
+          </div>
+        </div>
+        </div>
+      </article>
+
+      <article class="work reveal" data-no="03">
+        <div class="work-grid">
+        <div class="work-body">
+        <div class="work-top">
+          <span class="work-ico">⚡</span>
+          <h3>360 纳米 Work · 跨境电商智能选品营销 Agent</h3>
+          <span class="comp">360 · FDE 前沿部署工程师方向</span>
+        </div>
+        <p>基于 <b>360 纳米 Work 智能体平台</b>的跨境电商海外智能选品与营销 Agent：搭建领域智能体专家，完成<b>专家提示词工程、AI 技能集成与自动化任务部署</b>，打通「<b>差评分析 → 差异化改进 → 毛利测算 → 多语言 Listing → TikTok 脚本</b>」全流程自动化；设计每日 / 每周两组定时任务，体现 CI/CD 持续集成部署与运维自动化能力。</p>
+        <div class="chips">
+          <span class="chip">63.7 秒生成物料包</span>
+          <span class="chip">覆盖率 93%</span>
+          <span class="chip">全流程自动化闭环</span>
+          <span class="chip">定时任务 · CI/CD 运维</span>
+        </div>
+        <div class="tags">
+          <span class="tag">360 纳米 Work</span><span class="tag">AI Agent</span><span class="tag">提示词工程</span><span class="tag">技能编排</span><span class="tag">跨境电商</span><span class="tag">TikTok</span>
+        </div>
+        <div class="links">
+          <span class="link-btn dim">🏢 企业项目 · 细节面谈详述</span>
+        </div>
+        </div>
+        <div class="work-visual">
+          <div class="mock">
+            <div class="mock-bar"><i></i><i></i><i></i><span>360 纳米 Work · 选品营销流水线</span></div>
+            <div class="mock-body">
+              <div class="score-ring" style="background:conic-gradient(var(--teal) 0 93%,var(--line) 0)"><div class="in"><b style="color:var(--teal)">93%</b></div></div>
+              <div class="mock-bars">
+                <div class="mb"><i style="width:88%"></i></div>
+                <div class="mb"><i style="width:93%"></i></div>
+                <div class="mb"><i style="width:90%"></i></div>
+                <div class="mb"><i style="width:86%"></i></div>
+              </div>
+            </div>
+            <div class="mock-line" style="padding:0 16px 14px">差评分析 → 毛利测算 → Listing → TikTok · 63.7s</div>
+          </div>
+        </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 安全实战 -->
+  <section id="secops">
+    <div class="sec-head"><span class="sec-idx">02 · SECURITY OPS</span><h2>安全实战</h2><div class="sec-line"></div></div>
+    <div class="duo">
+      <div class="card reveal">
+        <h3>🎖️ 国家级重大活动网络安保（信息安全创新实验室）</h3>
+        <div class="mtl">
+          <div class="row"><span class="d">2024.07</span><span class="e"><b>党的二十届三中全会</b>网络安保 · 检测大屏与 web 资产，发现弱口令漏洞</span></div>
+          <div class="row"><span class="d">2024.09</span><span class="e"><b>金东区网络攻防演练</b>（护网）· 蓝队防守，发现 Redis 未授权等漏洞，<b>团队一等奖</b></span></div>
+          <div class="row"><span class="d">2025.01</span><span class="e"><b>哈尔滨第九届亚冬会</b>网络安保 · web 服务分析，获取某注册系统账号密码</span></div>
+          <div class="row"><span class="d">2025.02</span><span class="e"><b>全国两会</b>网络安保 · 摄像头弱口令获取监控管理员权限 + 任意文件读取</span></div>
+          <div class="row"><span class="d">2025.03</span><span class="e"><b>博鳌论坛</b>网络安保 · 发现任意文件读取漏洞</span></div>
+          <div class="row"><span class="d">2025.06</span><span class="e"><b>金砖国家领导人峰会</b>网络安保 · 发现 SQL 注入漏洞</span></div>
+          <div class="row"><span class="d">2025.07</span><span class="e"><b>九三纪念大会</b>网络安保 · 弱口令获取某大屏系统管理员权限</span></div>
+        </div>
+        <p style="margin-top:12px;font-size:12px;color:var(--txt3)">实验室为浙江省公安厅网络与信息安全信息通报中心技术支持单位（省内唯一高校）· 金华网警训练基地</p>
+      </div>
+      <div class="card reveal">
+        <h3>⚔️ 攻防演练与竞赛</h3>
+        <div class="mtl">
+          <div class="row"><span class="d">一等奖</span><span class="e"><b>金东网络安全攻防演练</b> · 蓝队防守：事前资产发现与风险报告 → 事中流量监控、防火墙封堵、蜜罐溯源 → 事后报告交付全流程</span></div>
+          <div class="row"><span class="d">队长</span><span class="e"><b>乐业杭州 2025 大学生网络安全挑战赛</b> · 带领团队晋级决赛</span></div>
+          <div class="row"><span class="d">全国 20</span><span class="e"><b>深育杯网络安全知识竞赛</b></span></div>
+          <div class="row"><span class="d">省三等奖</span><span class="e"><b>浙江省大学生网络与信息安全竞赛挑战赛</b>（省级一类）</span></div>
+        </div>
+        <h3 style="margin-top:18px">🧰 常用武器库</h3>
+        <div class="chips-wrap">
+          <span class="cchip">Burp Suite</span><span class="cchip">Nmap</span><span class="cchip">Nuclei</span><span class="cchip">sqlmap</span><span class="cchip">Yakit</span><span class="cchip">fscan</span><span class="cchip">xray 企业版</span><span class="cchip">FOFA</span><span class="cchip">Kali Linux</span><span class="cchip">subfinder</span><span class="cchip">SpringBoot-Scan</span>
+        </div>
+        <p style="margin-top:14px;font-size:12px;color:var(--txt3)">毕业设计：《Apache Tomcat 远程代码执行漏洞（CVE-2025-24813）的复现、利用分析与修复机制研究》</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 工作履历 -->
+  <section id="career">
+    <div class="sec-head"><span class="sec-idx">03 · CAREER</span><h2>工作履历</h2><div class="sec-line"></div></div>
+    <div class="job reveal">
+      <div class="job-top">
+        <h3>安全服务工程师</h3>
+        <span class="where">杭州 · 某上市高新技术企业 · 专精特新「小巨人」企业 · 信息安全部</span>
+      </div>
+      <ul>
+        <li>承担 <b>漏洞挖掘（现场 + 远程）、专项漏洞挖掘、渗透测试、应急响应、CNVD 漏洞复测、漏洞跟踪通报</b>等全栈安全服务工作，参与 <b>17 类安全服务项目</b>（行业检测、风险监测平台、政府技术支撑、渗透测试、定级备案、CCRC 文档等）</li>
+        <li>累计输出 <b>SQL 注入、Swagger API 未授权、MQTT 未授权、SpringBoot Actuator 未授权、目录遍历</b>等漏洞报告 <b>300 余份</b>，漏洞复测报告 <b>200 余份</b>，坚持每日日报 / 每周周报</li>
+        <li>负责 <b>CNVD 漏洞验证</b>与通报联系：指导存在漏洞的单位完成修复与隐患报告撰写，维护漏洞跟踪台账</li>
+        <li>制作公司 Web 安全漏洞指南、30 余个安全工具的 4 类合规文档；每月面向部门内部开展安全培训</li>
+        <li>获 <b>2025 年度辖区一体化安全运营平台优秀团队奖</b></li>
+      </ul>
+    </div>
+    <div class="job reveal">
+      <div class="job-top">
+        <h3>政府安全驻场（受国企联通委派）</h3>
+        <span class="where">金华开发区政府 · 安全驻场</span>
+      </div>
+      <ul>
+        <li>负责政府侧<b>数据资产管理、防泄露、合规审查、行为审计</b></li>
+        <li>驻场期间完成日常安全巡检与风险处置，保障政务侧网络与数据安全</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 资质荣誉 -->
+  <section id="honors">
+    <div class="sec-head"><span class="sec-idx">04 · CREDENTIALS</span><h2>资质与荣誉</h2><div class="sec-line"></div></div>
+    <div class="duo">
+      <div class="card reveal">
+        <h3>📜 资质证书</h3>
+        <div class="chips-wrap">
+          <span class="cchip">NISP 二级</span><span class="cchip">NISP 一级</span><span class="cchip">计算机程序设计员高级工（三级）</span><span class="cchip">全国计算机三级 · 信息安全技术</span><span class="cchip">CET-4</span><span class="cchip">浙江省计算机三级 · 计算机网络技术及应用</span><span class="cchip">计算机二级 Python</span><span class="cchip">OpenHarmony 初级人才认证</span><span class="cchip">C1 驾驶证</span>
+        </div>
+        <h3 style="margin-top:18px">🎓 教育</h3>
+        <p><b>宁波财经学院 · 本科 · 计算机科学与技术</b><br>核心课程高分：计算机网络安全技术 96 · 网络安全管理与维护 96 · Linux 安全基础 96 · Python 数据采集 96 · 高级网络技术（华为）96 · 数据库技术基础 92 · 网站开发与 Web 安全 89</p>
+      </div>
+      <div class="card reveal">
+        <h3>🏆 荣誉精选</h3>
+        <div class="hgrid">
+          <div class="honor"><b>浙江省政府奖学金</b><span>奖学金</span></div>
+          <div class="honor"><b>国家励志奖学金</b><span>奖学金</span></div>
+          <div class="honor"><b>一等奖学金 ×3</b><span>奖学金</span></div>
+          <div class="honor"><b>全国大学生创新创业能力大赛 一等奖</b><span>国家级一类</span></div>
+          <div class="honor"><b>高教社杯数学建模 二 / 三等奖</b><span>省级一类</span></div>
+          <div class="honor"><b>浙江省优秀毕业生</b><span>省级荣誉</span></div>
+          <div class="honor"><b>新质人才创新实验班 一等奖</b><span>校级 · 智能分拣系统</span></div>
+          <div class="honor"><b>数据可视化 / Hadoop 一等奖</b><span>校级竞赛</span></div>
+          <div class="honor"><b>优秀团队奖</b><span>2025 辖区一体化安全运营平台</span></div>
+        </div>
+        <p style="margin-top:14px;font-size:12px;color:var(--txt3)">中共预备党员 · 志愿服务时长 613.5 小时 · 三好学生 ×2 · 校院两级荣誉 30+ 项</p>
+      </div>
+    </div>
+  </section>
+
+<!-- 关于 -->
+  <section id="about">
+    <div class="sec-head"><span class="sec-idx">05 · ABOUT</span><h2>关于我</h2><div class="sec-line"></div></div>
+    <div class="duo">
+      <div class="card reveal">
+        <h3>方向与特点</h3>
+        <p>主攻 <b>网络安全 × 大模型应用</b>的交叉领域：既能做漏洞挖掘、渗透测试与应急响应，也能把 LLM / RAG / 多智能体做成<b>真正跑在生产环境里的系统</b>（systemd 托管、7×24 在线、可被外部真实调用）。从设计、开发、部署到测试的完整闭环全部一人独立完成；做过 17 类企业安全服务项目，也在 360 做 AI Agent 的前沿部署。</p>
+      </div>
+      <div class="card reveal">
+        <h3>核心技能</h3>
+        <div class="skill"><span>网络渗透 / 漏洞挖掘</span><div class="bar"><i data-w="90%"></i></div></div>
+        <div class="skill"><span>Python</span><div class="bar"><i data-w="92%"></i></div></div>
+        <div class="skill"><span>大模型 / RAG</span><div class="bar"><i data-w="86%"></i></div></div>
+        <div class="skill"><span>多智能体 / AIP</span><div class="bar"><i data-w="82%"></i></div></div>
+        <div class="skill"><span>Linux / Docker</span><div class="bar"><i data-w="78%"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-cta">
+      <h3>安全服务工程师 / AI 应用工程师（FDE） · 也承接相关项目</h3>
+      <p>渗透测试 · 漏洞挖掘 · 安全评估 | AI 应用落地 · RAG · 智能体开发——有需要欢迎联系</p>
+    </div>
+    <div class="footer-inner">
+      <span class="mono">© 2026 Zhou Jianhua · 浙江金华</span>
+      <span class="mono">📱/微信 15314507072 · <a href="mailto:744735685@qq.com">744735685@qq.com</a> · <a href="https://github.com/zhoujianhua-dev" target="_blank" rel="noopener">GitHub @zhoujianhua-dev</a></span>
+    </div>
+  </div>
+</footer>
+
+<button id="topBtn" title="回到顶部">↑</button>
+
+<script>
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    e.target.classList.add("in");
+    e.target.querySelectorAll(".bar i").forEach(b => b.style.width = b.dataset.w);
+    io.unobserve(e.target);
+  }
+}), { threshold: 0, rootMargin: "0px 0px 300px 0px" });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+// 导航滚动高亮
+const navMap = {};
+document.querySelectorAll(".nav-links a[href^='#']").forEach(a => navMap[a.getAttribute("href").slice(1)] = a);
+const spy = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    Object.values(navMap).forEach(a => a.classList.remove("active"));
+    navMap[e.target.id]?.classList.add("active");
+  }
+}), { rootMargin: "-40% 0px -55% 0px" });
+Object.keys(navMap).forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+
+const tb = document.getElementById("topBtn");
+addEventListener("scroll", () => tb.classList.toggle("show", scrollY > 500), { passive: true });
+tb.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
+</script>
+
+</body>
+</html>
