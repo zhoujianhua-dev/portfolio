@@ -759,18 +759,18 @@ tb.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
   const lbImg = lb.querySelector("img");
   const lbMeta = lb.querySelector(".meta");
   let cur = 0;
-  function openLightbox(idx){
+  window.openLightbox = function(idx){
     cur = idx;
     lbImg.src = base + files[idx];
     lbMeta.textContent = `${idx+1} / ${files.length}`;
     lb.classList.add("show");
-  }
-  function closeLightbox(){ lb.classList.remove("show"); }
-  function navLightbox(dir){
+  };
+  window.closeLightbox = function(){ lb.classList.remove("show"); };
+  window.navLightbox = function(dir){
     cur = (cur + dir + files.length) % files.length;
     lbImg.src = base + files[cur];
     lbMeta.textContent = `${cur+1} / ${files.length}`;
-  }
+  };
   lb.querySelector(".close").addEventListener("click", closeLightbox);
   lb.querySelector(".prev").addEventListener("click", e => { e.stopPropagation(); navLightbox(-1); });
   lb.querySelector(".next").addEventListener("click", e => { e.stopPropagation(); navLightbox(1); });
