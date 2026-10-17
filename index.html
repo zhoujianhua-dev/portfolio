@@ -693,7 +693,7 @@ document.querySelectorAll(".profile-card").forEach(card => {
   if (!gallery) return;
   files.forEach((f,idx) => {
     const el = document.createElement("div");
-    el.className = "gallery-item reveal";
+    el.className = "gallery-item";
     el.innerHTML = `<img src="${base}${f}" loading="lazy" alt="证明材料 ${idx+1}"><div class="gi-bar">${idx+1} / ${files.length}</div>`;
     el.addEventListener("click", () => openLightbox(idx));
     gallery.appendChild(el);
