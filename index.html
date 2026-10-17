@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>周建华 · 作品集 | 网络安全 × 大模型应用</title>
-<meta name="description" content="周建华 · 宁波财经学院计算机科学与技术（网络安全方向）。企业安全服务项目经验、多次网络安保活动历练、全国赛智能体调用榜双榜第 1。作品：智安盾（RAG 漏洞报告生成）、多智能体协同软件开发工作台、360 纳米 Work AI Agent。">
+<meta name="description" content="周建华的个人项目作品集。作品：智安盾（RAG 漏洞报告生成）、多智能体协同软件开发工作台、360 纳米 Work AI Agent。">
 <meta property="og:title" content="周建华 · 作品集 | 网络安全 × 大模型应用">
 <meta property="og:description" content="网络安全 × AI · 企业安全服务经验 · 全国赛双榜第 1 · 承接相关项目">
 <meta property="og:type" content="website">
@@ -89,13 +89,6 @@ h1 .accent{background:linear-gradient(95deg,#4FD1C5 10%,#8FE8DF 55%,#E8B45A 110%
 .term-body .cursor{display:inline-block;width:8px;height:14px;background:var(--teal);vertical-align:-2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 @media (max-width:940px){.hero-grid{grid-template-columns:1fr}.term{display:none}}
-
-/* ===== 数据条 ===== */
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:34px 0 8px}
-.stat{border:1px solid var(--line);border-radius:var(--r);padding:18px 16px;background:linear-gradient(180deg,var(--surface2),var(--bg2));transition:transform .2s,border-color .2s}
-.stat:hover{transform:translateY(-2px);border-color:rgba(79,209,197,.5)}
-.stat b{display:block;font-size:22px;color:var(--teal);font-weight:900;letter-spacing:.5px}
-.stat span{display:block;margin-top:6px;font-size:12.5px;color:var(--txt3)}
 
 /* ===== Section ===== */
 section{padding:30px 0 10px}
@@ -231,10 +224,6 @@ footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;b
     <span class="logo">ZJH<b>.</b></span>
     <div class="nav-links">
       <a href="#works">作品</a>
-      <a href="#secops">实战</a>
-      <a href="#career">履历</a>
-      <a href="#honors">荣誉</a>
-      <a href="#about">关于</a>
       <a class="gh" href="https://github.com/zhoujianhua-dev" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </div>
@@ -248,13 +237,11 @@ footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;b
     <img class="avatar" src="assets/avatar.jpg" alt="周建华">
     <div class="kicker">Zhou Jianhua · Portfolio · Security × AI · 承接相关项目</div>
     <h1>你好，我是<span class="accent"> 周建华</span></h1>
-    <p class="sub">宁波财经学院 · 计算机科学与技术（网络安全方向）· 中共预备党员。专注 <b>AI 与安全结合的工程落地</b>：有<b>多份企业级漏洞报告</b>的实战沉淀、<b>多次网络安保活动</b>历练，以及从智能漏洞报告生成、360 纳米 Work 跨境电商 Agent 到多智能体协同开发的 <b>LLM 工程化</b>实践。</p>
+    <p class="sub"><b>AI × Security Engineer</b> · 承接相关项目</p>
     <div class="badges">
-      <span class="badge teal">宁波财经学院 · 计算机科学与技术</span>
-      <span class="badge teal">网络安全方向</span>
-      <span class="badge">中共预备党员</span>
       <span class="badge">大模型应用 · RAG · 多智能体</span>
-      <span class="badge">NISP Ⅱ 持证</span>
+      <span class="badge">AI Agent 前沿部署（FDE）</span>
+      <span class="badge">Python · Flask · FastAPI</span>
     </div>
     <div class="hero-cta">
       <a class="cta primary" href="#works">查看我的作品 ↓</a>
@@ -266,11 +253,9 @@ footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;b
     <div class="term-bar"><i></i><i></i><i></i><span>zjh@portfolio: ~</span></div>
     <div class="term-body">
       <div><span class="p">$</span> whoami</div>
-      <div><span class="o">zhou_jianhua</span> <span class="c">// 网络安全 × 大模型应用</span></div>
-      <div><span class="p">$</span> systemctl status security-ops</div>
-      <div><span class="o">● active</span> <span class="c">— security ops & AI projects</span></div>
+      <div><span class="o">zhou_jianhua</span> <span class="c">// AI × Security Engineer</span></div>
       <div><span class="p">$</span> systemctl status my-agents</div>
-      <div><span class="o">● active</span> <span class="c">— 6/6 agents online · 7×24 running</span></div>
+      <div><span class="o">● active</span> <span class="c">— 6/6 agents online · 7×24</span></div>
       <div><span class="p">$</span> <span class="cursor"></span></div>
     </div>
    </div>
@@ -278,14 +263,6 @@ footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;b
 </header>
 
 <main class="wrap">
-
-  <!-- 数据条 -->
-  <div class="stats reveal">
-    <div class="stat"><b>17 类</b><span>企业安全服务项目经历</span></div>
-    <div class="stat"><b>第 1 名</b><span>全国赛智能体调用榜双榜</span></div>
-    <div class="stat"><b>6 个</b><span>智能体云端 7×24 在线</span></div>
-    <div class="stat"><b>63.7s</b><span>AI Agent 物料包生成</span></div>
-  </div>
 
   <!-- 作品 -->
   <section id="works">
@@ -408,124 +385,13 @@ footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;b
     </div>
   </section>
 
-  <!-- 安全实战 -->
-  <section id="secops">
-    <div class="sec-head"><span class="sec-idx">02 · SECURITY OPS</span><h2>安全实战</h2><div class="sec-line"></div></div>
-    <div class="duo">
-      <div class="card reveal">
-        <h3>🎖️ 国家级重大活动网络安保（信息安全创新实验室）</h3>
-        <div class="mtl">
-          <div class="row"><span class="d">2024.07</span><span class="e"><b>党的二十届三中全会</b>网络安保 · 检测大屏与 web 资产，发现弱口令漏洞</span></div>
-          <div class="row"><span class="d">2024.09</span><span class="e"><b>金东区网络攻防演练</b>（护网）· 蓝队防守，发现 Redis 未授权等漏洞，<b>团队一等奖</b></span></div>
-          <div class="row"><span class="d">2025.01</span><span class="e"><b>哈尔滨第九届亚冬会</b>网络安保 · web 服务分析，获取某注册系统账号密码</span></div>
-          <div class="row"><span class="d">2025.02</span><span class="e"><b>全国两会</b>网络安保 · 摄像头弱口令获取监控管理员权限 + 任意文件读取</span></div>
-          <div class="row"><span class="d">2025.03</span><span class="e"><b>博鳌论坛</b>网络安保 · 发现任意文件读取漏洞</span></div>
-          <div class="row"><span class="d">2025.06</span><span class="e"><b>金砖国家领导人峰会</b>网络安保 · 发现 SQL 注入漏洞</span></div>
-          <div class="row"><span class="d">2025.07</span><span class="e"><b>九三纪念大会</b>网络安保 · 弱口令获取某大屏系统管理员权限</span></div>
-        </div>
-        <p style="margin-top:12px;font-size:12px;color:var(--txt3)">实验室为浙江省公安厅网络与信息安全信息通报中心技术支持单位（省内唯一高校）· 金华网警训练基地</p>
-      </div>
-      <div class="card reveal">
-        <h3>⚔️ 攻防演练与竞赛</h3>
-        <div class="mtl">
-          <div class="row"><span class="d">一等奖</span><span class="e"><b>金东网络安全攻防演练</b> · 蓝队防守：事前资产发现与风险报告 → 事中流量监控、防火墙封堵、蜜罐溯源 → 事后报告交付全流程</span></div>
-          <div class="row"><span class="d">队长</span><span class="e"><b>乐业杭州 2025 大学生网络安全挑战赛</b> · 带领团队晋级决赛</span></div>
-          <div class="row"><span class="d">全国 20</span><span class="e"><b>深育杯网络安全知识竞赛</b></span></div>
-          <div class="row"><span class="d">省三等奖</span><span class="e"><b>浙江省大学生网络与信息安全竞赛挑战赛</b>（省级一类）</span></div>
-        </div>
-        <h3 style="margin-top:18px">🧰 常用武器库</h3>
-        <div class="chips-wrap">
-          <span class="cchip">Burp Suite</span><span class="cchip">Nmap</span><span class="cchip">Nuclei</span><span class="cchip">sqlmap</span><span class="cchip">Yakit</span><span class="cchip">fscan</span><span class="cchip">xray 企业版</span><span class="cchip">FOFA</span><span class="cchip">Kali Linux</span><span class="cchip">subfinder</span><span class="cchip">SpringBoot-Scan</span>
-        </div>
-        <p style="margin-top:14px;font-size:12px;color:var(--txt3)">毕业设计：《Apache Tomcat 远程代码执行漏洞（CVE-2025-24813）的复现、利用分析与修复机制研究》</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 工作履历 -->
-  <section id="career">
-    <div class="sec-head"><span class="sec-idx">03 · CAREER</span><h2>工作履历</h2><div class="sec-line"></div></div>
-    <div class="job reveal">
-      <div class="job-top">
-        <h3>安全服务工程师</h3>
-        <span class="where">杭州 · 某上市高新技术企业 · 专精特新「小巨人」企业 · 信息安全部</span>
-      </div>
-      <ul>
-        <li>承担 <b>漏洞挖掘（现场 + 远程）、专项漏洞挖掘、渗透测试、应急响应、CNVD 漏洞复测、漏洞跟踪通报</b>等全栈安全服务工作，参与 <b>17 类安全服务项目</b>（行业检测、风险监测平台、政府技术支撑、渗透测试、定级备案、CCRC 文档等）</li>
-        <li>累计输出 <b>SQL 注入、Swagger API 未授权、MQTT 未授权、SpringBoot Actuator 未授权、目录遍历</b>等漏洞报告 <b>300 余份</b>，漏洞复测报告 <b>200 余份</b>，坚持每日日报 / 每周周报</li>
-        <li>负责 <b>CNVD 漏洞验证</b>与通报联系：指导存在漏洞的单位完成修复与隐患报告撰写，维护漏洞跟踪台账</li>
-        <li>制作公司 Web 安全漏洞指南、30 余个安全工具的 4 类合规文档；每月面向部门内部开展安全培训</li>
-        <li>获 <b>2025 年度辖区一体化安全运营平台优秀团队奖</b></li>
-      </ul>
-    </div>
-    <div class="job reveal">
-      <div class="job-top">
-        <h3>政府安全驻场（受国企联通委派）</h3>
-        <span class="where">金华开发区政府 · 安全驻场</span>
-      </div>
-      <ul>
-        <li>负责政府侧<b>数据资产管理、防泄露、合规审查、行为审计</b></li>
-        <li>驻场期间完成日常安全巡检与风险处置，保障政务侧网络与数据安全</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 资质荣誉 -->
-  <section id="honors">
-    <div class="sec-head"><span class="sec-idx">04 · CREDENTIALS</span><h2>资质与荣誉</h2><div class="sec-line"></div></div>
-    <div class="duo">
-      <div class="card reveal">
-        <h3>📜 资质证书</h3>
-        <div class="chips-wrap">
-          <span class="cchip">NISP 二级</span><span class="cchip">NISP 一级</span><span class="cchip">计算机程序设计员高级工（三级）</span><span class="cchip">全国计算机三级 · 信息安全技术</span><span class="cchip">CET-4</span><span class="cchip">浙江省计算机三级 · 计算机网络技术及应用</span><span class="cchip">计算机二级 Python</span><span class="cchip">OpenHarmony 初级人才认证</span><span class="cchip">C1 驾驶证</span>
-        </div>
-        <h3 style="margin-top:18px">🎓 教育</h3>
-        <p><b>宁波财经学院 · 本科 · 计算机科学与技术</b><br>核心课程高分：计算机网络安全技术 96 · 网络安全管理与维护 96 · Linux 安全基础 96 · Python 数据采集 96 · 高级网络技术（华为）96 · 数据库技术基础 92 · 网站开发与 Web 安全 89</p>
-      </div>
-      <div class="card reveal">
-        <h3>🏆 荣誉精选</h3>
-        <div class="hgrid">
-          <div class="honor"><b>浙江省政府奖学金</b><span>奖学金</span></div>
-          <div class="honor"><b>国家励志奖学金</b><span>奖学金</span></div>
-          <div class="honor"><b>一等奖学金 ×3</b><span>奖学金</span></div>
-          <div class="honor"><b>全国大学生创新创业能力大赛 一等奖</b><span>国家级一类</span></div>
-          <div class="honor"><b>高教社杯数学建模 二 / 三等奖</b><span>省级一类</span></div>
-          <div class="honor"><b>浙江省优秀毕业生</b><span>省级荣誉</span></div>
-          <div class="honor"><b>新质人才创新实验班 一等奖</b><span>校级 · 智能分拣系统</span></div>
-          <div class="honor"><b>数据可视化 / Hadoop 一等奖</b><span>校级竞赛</span></div>
-          <div class="honor"><b>优秀团队奖</b><span>2025 辖区一体化安全运营平台</span></div>
-        </div>
-        <p style="margin-top:14px;font-size:12px;color:var(--txt3)">中共预备党员 · 志愿服务时长 613.5 小时 · 三好学生 ×2 · 校院两级荣誉 30+ 项</p>
-      </div>
-    </div>
-  </section>
-
-<!-- 关于 -->
-  <section id="about">
-    <div class="sec-head"><span class="sec-idx">05 · ABOUT</span><h2>关于我</h2><div class="sec-line"></div></div>
-    <div class="duo">
-      <div class="card reveal">
-        <h3>方向与特点</h3>
-        <p>主攻 <b>网络安全 × 大模型应用</b>的交叉领域：既能做漏洞挖掘、渗透测试与应急响应，也能把 LLM / RAG / 多智能体做成<b>真正跑在生产环境里的系统</b>（systemd 托管、7×24 在线、可被外部真实调用）。从设计、开发、部署到测试的完整闭环全部一人独立完成；做过 17 类企业安全服务项目，也在 360 做 AI Agent 的前沿部署。</p>
-      </div>
-      <div class="card reveal">
-        <h3>核心技能</h3>
-        <div class="skill"><span>网络渗透 / 漏洞挖掘</span><div class="bar"><i data-w="90%"></i></div></div>
-        <div class="skill"><span>Python</span><div class="bar"><i data-w="92%"></i></div></div>
-        <div class="skill"><span>大模型 / RAG</span><div class="bar"><i data-w="86%"></i></div></div>
-        <div class="skill"><span>多智能体 / AIP</span><div class="bar"><i data-w="82%"></i></div></div>
-        <div class="skill"><span>Linux / Docker</span><div class="bar"><i data-w="78%"></i></div></div>
-      </div>
-    </div>
-  </section>
-
   </main>
 
 <footer id="contact">
   <div class="wrap">
     <div class="footer-cta">
-      <h3>安全服务工程师 / AI 应用工程师（FDE） · 也承接相关项目</h3>
-      <p>渗透测试 · 漏洞挖掘 · 安全评估 | AI 应用落地 · RAG · 智能体开发——有需要欢迎联系</p>
+      <h3>承接项目</h3>
+      <p>网络安全 · AI 应用落地 · RAG · 智能体开发 · 软件开发——有需要欢迎联系</p>
     </div>
     <div class="footer-inner">
       <span class="mono">© 2026 Zhou Jianhua · 浙江金华</span>
