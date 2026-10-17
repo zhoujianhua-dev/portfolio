@@ -213,6 +213,25 @@ footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;b
   .skill span:first-child{flex:0 0 104px;font-size:12px}
   #topBtn{right:16px;bottom:16px}
 }
+
+/* ===== 个人展示 ===== */
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+.profile-card{border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;background:var(--surface);transition:transform .2s,border-color .2s}
+.profile-card:hover{transform:translateY(-2px);border-color:rgba(79,209,197,.45)}
+.profile-card h3{font-size:15px;color:var(--teal);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.profile-card .sub-h{font-size:13px;color:var(--txt);font-weight:700;margin:14px 0 6px}
+.profile-card ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.profile-card li{font-size:13px;color:var(--txt2);padding-left:16px;position:relative}
+.profile-card li::before{content:"›";position:absolute;left:0;color:var(--teal);font-weight:800}
+.profile-card li b{color:var(--txt)}
+.profile-card .meta{font-size:12px;color:var(--txt3);font-family:var(--mono);margin-top:2px}
+.course-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.course{font-size:11px;color:var(--txt2);border:1px solid var(--line);padding:3px 10px;border-radius:20px;background:var(--bg2)}
+.course.high{color:var(--amber);border-color:rgba(232,180,90,.35);background:rgba(232,180,90,.06)}
+.vol-big{font-family:var(--mono);font-size:28px;color:var(--teal);font-weight:800;margin-bottom:4px}
+.vol-label{font-size:12px;color:var(--txt3)}
+.wide{grid-column:1/-1}
+@media (max-width:860px){.profile-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -224,6 +243,7 @@ footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;b
     <span class="logo">ZJH<b>.</b></span>
     <div class="nav-links">
       <a href="#works">作品</a>
+      <a href="#profile">关于我</a>
       <a class="gh" href="https://github.com/zhoujianhua-dev" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </div>
@@ -385,6 +405,179 @@ footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;b
     </div>
   </section>
 
+  <!-- 个人展示 -->
+  <section id="profile" class="profile reveal">
+    <div class="sec-head"><span class="sec-idx">02 · PROFILE</span><h2>教育与成长</h2><div class="sec-line"></div></div>
+    <div class="profile-grid">
+
+      <div class="profile-card wide">
+        <h3>🎓 教育经历</h3>
+        <div class="meta">宁波财经学院 · 计算机科学与技术（网络安全方向）· 中共预备党员</div>
+        <div class="sub-h">主修课程</div>
+        <div class="course-list">
+          <span class="course high">计算机网络安全技术(96)</span>
+          <span class="course high">网络安全管理与维护(96)</span>
+          <span class="course high">Linux安全基础(96)</span>
+          <span class="course high">Python数据采集(96)</span>
+          <span class="course high">Windows网络配置与管理(96)</span>
+          <span class="course high">高级网络技术(华为)(96)</span>
+          <span class="course">数据库技术基础A(92)</span>
+          <span class="course">网站开发与web安全(89)</span>
+          <span class="course">大数据处理与分析(89)</span>
+          <span class="course">Python程序设计基础(87)</span>
+          <span class="course">Web前端基础(85)</span>
+          <span class="course">专业导论(85)</span>
+          <span class="course">面向对象编程(84)</span>
+          <span class="course">Linux安全应(82)</span>
+          <span class="course">Linux高级应用(82)</span>
+          <span class="course">windows主机安全(82)</span>
+          <span class="course">windows服务与主机(82)</span>
+          <span class="course">网络技术基础(78)</span>
+          <span class="course">机器学习算法与应用(73)</span>
+          <span class="course">路由与交换(70)</span>
+          <span class="course">大学生生涯发展与就业指导(88)</span>
+          <span class="course">暑期专业实践(良好)</span>
+          <span class="course high">基础英语3Z(100)</span>
+          <span class="course">行业英语(87)</span>
+          <span class="course">创业基础(93)</span>
+          <span class="course">数学模型及其应用(89)</span>
+          <span class="course">高等数学(87)</span>
+          <span class="course">面向对象程序设计-Java</span>
+          <span class="course">WEB编程技术</span>
+          <span class="course">计算机组成与结构</span>
+          <span class="course">计算机网络</span>
+          <span class="course">数据库原理与应用</span>
+          <span class="course">Python数据分析</span>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <h3>🤝 志愿服务</h3>
+        <div class="vol-big">613.5</div>
+        <div class="vol-label">小时志愿时长</div>
+      </div>
+
+      <div class="profile-card">
+        <h3>📜 认证资质</h3>
+        <ul>
+          <li>C1 驾驶证</li>
+        </ul>
+      </div>
+
+      <div class="profile-card">
+        <h3>🏆 奖学金</h3>
+        <ul>
+          <li>浙江省政府奖学金</li>
+          <li>国家励志奖学金</li>
+          <li>一等奖学金 ×3</li>
+          <li>二等奖学金 ×5</li>
+        </ul>
+      </div>
+
+      <div class="profile-card">
+        <h3>💼 工作经历</h3>
+        <ul>
+          <li>数字化运营专员</li>
+          <li>金华零跑 · 试制岗位</li>
+          <li>捞王 / 东门口 / 许府牛 · 餐饮店兼职</li>
+          <li>皇家园林暑假工</li>
+          <li>勤工俭学及各种兼职（约2年）</li>
+        </ul>
+      </div>
+
+      <div class="profile-card wide">
+        <h3>🌟 校园经历</h3>
+        <div class="sub-h">团学组织</div>
+        <ul>
+          <li>组织部副部 · 班团总负责人 · 通信网络支部学生联络人</li>
+          <li>负责全学院入党入团等工作</li>
+          <li>全院新发展团员总负责人，主导60余名团员发展</li>
+          <li>带领干事完成各项工作任务</li>
+        </ul>
+        <div class="sub-h">大学班级</div>
+        <ul>
+          <li>生活委员 · 管理班级经费</li>
+        </ul>
+        <div class="sub-h">暑期社会实践</div>
+        <ul>
+          <li>E•就通"红芯向党"实践队队员</li>
+          <li>"潮风景出发吧"大学生暑期社会实践优秀案例征集活动(国家级一类)一等奖</li>
+          <li>大学生社会实践"千校千项"网络展示活动(国家级一类)一等奖</li>
+          <li>入驻银坑村，开展防诈和红色宣讲及八段锦等多个活动</li>
+        </ul>
+        <div class="sub-h">大学小班</div>
+        <ul>
+          <li>班主任助理 · 协助老师选拔班委，策划新生见面会，辅助新生军训</li>
+        </ul>
+        <div class="sub-h">校新质人才创新实验班</div>
+        <ul>
+          <li>组织委员 · 协助实验班相关事项开展</li>
+        </ul>
+      </div>
+
+      <div class="profile-card wide">
+        <h3>🥇 国家级 / 省级荣誉</h3>
+        <ul>
+          <li>浙江省优秀毕业生</li>
+          <li>全国大学生创新创业能力大赛创新思维赛初赛(国家级一类)一等奖</li>
+          <li>高教社杯全国大学生数学建模竞赛(省级一类)二等奖、三等奖各一次</li>
+          <li>浙江省长三角高校数学建模竞赛二等奖</li>
+        </ul>
+      </div>
+
+      <div class="profile-card">
+        <h3>🏅 市级荣誉</h3>
+        <ul>
+          <li>金华马拉松完赛</li>
+        </ul>
+      </div>
+
+      <div class="profile-card wide">
+        <h3>🏆 校级荣誉</h3>
+        <ul>
+          <li>校优秀毕业生</li>
+          <li>连续两学年三好学生</li>
+          <li>优秀学生干部和优秀共青团员</li>
+          <li>新质人才创新实验班项目一等奖</li>
+          <li>数据可视化赛项一等奖</li>
+          <li>Hadoop数据处理竞赛一等奖</li>
+          <li>第四届数学建模竞赛一等奖</li>
+          <li>优秀团日活动展示一等奖</li>
+          <li>网络安全知识竞赛二等奖</li>
+          <li>Hadoop部署管理二等奖</li>
+          <li>英语竞赛二等奖</li>
+          <li>软件测试校赛二等奖</li>
+          <li>卡尔马克思团队赛二等奖</li>
+          <li>第三届数学建模三等奖</li>
+          <li>摄影大赛三等奖</li>
+          <li>"诵读杯"红色经典诵读大赛三等奖</li>
+          <li>创客马拉松三等奖</li>
+          <li>校马拉松完赛</li>
+          <li>长跑小达人</li>
+          <li>运动会特色方阵其他奖项</li>
+        </ul>
+      </div>
+
+      <div class="profile-card wide">
+        <h3>🎖️ 院级荣誉</h3>
+        <ul>
+          <li>"互联网＋"创新创业大赛二等奖</li>
+          <li>院马拉松一等奖两次</li>
+          <li>寝室育植活动二等奖</li>
+          <li>清风编程嘉年华三等奖</li>
+          <li>职业生涯规划大赛三等奖</li>
+          <li>运动会特色方阵三等奖</li>
+          <li>运动会400米第三名</li>
+          <li>运动会800米第三名</li>
+          <li>趣味项目集体跳绳三等奖</li>
+          <li>红色观影积极分子</li>
+          <li>牧哲班A等学员</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
   </main>
 
 <footer id="contact">
@@ -426,6 +619,32 @@ Object.keys(navMap).forEach(id => { const el = document.getElementById(id); if (
 const tb = document.getElementById("topBtn");
 addEventListener("scroll", () => tb.classList.toggle("show", scrollY > 500), { passive: true });
 tb.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
+
+// 展开全部院级/校级荣誉（可选）
+document.querySelectorAll(".profile-card").forEach(card => {
+  const toggle = document.createElement("div");
+  toggle.className = "meta";
+  toggle.style.cursor = "pointer";
+  toggle.style.marginTop = "10px";
+  toggle.textContent = "展开全部 ▾";
+  const ul = card.querySelector("ul");
+  if (!ul || ul.children.length <= 5) return;
+  const items = Array.from(ul.children);
+  const hidden = items.slice(5);
+  hidden.forEach(li => li.style.display = "none");
+  toggle.addEventListener("click", () => {
+    const hiddenItems = Array.from(ul.querySelectorAll("li"));
+    const currentlyHidden = hiddenItems.filter(li => li.style.display === "none");
+    if (currentlyHidden.length) {
+      currentlyHidden.forEach(li => li.style.display = "");
+      toggle.textContent = "收起 ▴";
+    } else {
+      hiddenItems.slice(5).forEach(li => li.style.display = "none");
+      toggle.textContent = "展开全部 ▾";
+    }
+  });
+  card.appendChild(toggle);
+});
 </script>
 
 </body>
