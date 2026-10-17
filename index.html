@@ -724,32 +724,6 @@ const tb = document.getElementById("topBtn");
 addEventListener("scroll", () => tb.classList.toggle("show", scrollY > 500), { passive: true });
 tb.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
 
-// 展开全部（适配 .profile-card 与 .job）
-document.querySelectorAll(".profile-card, .job").forEach(card => {
-  const toggle = document.createElement("div");
-  toggle.className = "meta";
-  toggle.style.cursor = "pointer";
-  toggle.style.marginTop = "10px";
-  toggle.textContent = "展开全部 ▾";
-  const ul = card.querySelector("ul");
-  if (!ul || ul.children.length <= 5) return;
-  const items = Array.from(ul.children);
-  const hidden = items.slice(5);
-  hidden.forEach(li => li.style.display = "none");
-  toggle.addEventListener("click", () => {
-    const hiddenItems = Array.from(ul.querySelectorAll("li"));
-    const currentlyHidden = hiddenItems.filter(li => li.style.display === "none");
-    if (currentlyHidden.length) {
-      currentlyHidden.forEach(li => li.style.display = "");
-      toggle.textContent = "收起 ▴";
-    } else {
-      hiddenItems.slice(5).forEach(li => li.style.display = "none");
-      toggle.textContent = "展开全部 ▾";
-    }
-  });
-  card.appendChild(toggle);
-});
-
 /* ===== 图片墙 + 灯箱 ===== */
 (function(){
   const base = "assets/career-images/";
