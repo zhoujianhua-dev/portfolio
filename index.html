@@ -232,6 +232,26 @@ footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;b
 .vol-label{font-size:12px;color:var(--txt3)}
 .wide{grid-column:1/-1}
 @media (max-width:860px){.profile-grid{grid-template-columns:1fr}}
+
+/* ===== 图片展示网格 ===== */
+.gallery-wrap{margin-top:18px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.gallery-item{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg2);cursor:zoom-in;transition:transform .2s,border-color .2s}
+.gallery-item:hover{transform:translateY(-2px);border-color:rgba(79,209,197,.45)}
+.gallery-item img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.gallery-item .gi-bar{font-family:var(--mono);font-size:10px;color:var(--txt3);padding:6px 8px;background:var(--surface);border-top:1px solid var(--line);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* 灯箱 */
+.lightbox{position:fixed;inset:0;background:rgba(10,17,32,.92);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}
+.lightbox.show{display:flex}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:14px;border:1px solid var(--line2);box-shadow:0 24px 70px rgba(0,0,0,.6);background:var(--bg)}
+.lightbox .close{position:absolute;top:18px;right:22px;font-size:26px;color:var(--txt);cursor:pointer;background:rgba(17,31,54,.6);border:1px solid var(--line);border-radius:10px;width:40px;height:40px;display:flex;align-items:center;justify-content:center}
+.lightbox .close:hover{color:#fff;border-color:var(--teal)}
+.lightbox .nav{position:absolute;top:50%;transform:translateY(-50%);font-size:30px;color:var(--txt);cursor:pointer;background:rgba(17,31,54,.6);border:1px solid var(--line);border-radius:10px;width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+.lightbox .nav:hover{color:#fff;border-color:var(--teal)}
+.lightbox .prev{left:18px}
+.lightbox .next{right:18px}
+.lightbox .meta{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:12px;color:var(--txt3);background:rgba(17,31,54,.6);border:1px solid var(--line);border-radius:10px;padding:6px 14px}
 </style>
 </head>
 <body>
@@ -578,6 +598,14 @@ footer::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;b
     </div>
   </section>
 
+  <section id="gallery" class="profile reveal">
+    <div class="sec-head"><span class="sec-idx">03 · GALLERY</span><h2>辅助证明材料</h2><div class="sec-line"></div></div>
+    <p style="color:var(--txt2);font-size:13.5px;margin-bottom:14px;">点击图片可放大查看</p>
+    <div class="gallery-wrap">
+      <div class="gallery" id="careerGallery"></div>
+    </div>
+  </section>
+
   </main>
 
 <footer id="contact">
@@ -645,6 +673,62 @@ document.querySelectorAll(".profile-card").forEach(card => {
   });
   card.appendChild(toggle);
 });
+
+/* ===== 图片墙 + 灯箱 ===== */
+(function(){
+  const base = "assets/career-images/";
+  const files = [
+    "image1.png","image2.jpeg","image3.jpeg","image4.jpeg","image5.jpeg","image6.jpeg","image7.jpeg","image8.jpeg","image9.jpeg","image10.jpeg",
+    "image11.jpeg","image12.jpeg","image13.jpeg","image14.jpeg","image15.jpeg","image16.jpeg","image17.jpeg","image18.jpeg","image19.jpeg","image20.jpeg",
+    "image21.jpeg","image22.jpeg","image23.jpeg","image24.jpeg","image25.jpeg","image26.jpeg","image27.jpeg","image28.jpeg","image29.jpeg","image30.jpeg",
+    "image31.jpeg","image32.jpeg","image33.jpeg","image34.jpeg","image35.jpeg","image36.jpeg","image37.jpeg","image38.jpeg","image39.jpeg","image40.jpeg",
+    "image41.jpeg","image42.jpeg","image43.jpeg","image44.jpeg","image45.jpeg","image46.png","image47.png","image48.png","image49.jpeg","image50.jpeg",
+    "image51.jpeg","image52.jpeg","image53.png","image54.png","image55.jpeg","image56.jpeg","image57.jpeg","image58.jpeg","image59.jpeg","image60.jpeg",
+    "image61.jpeg","image62.jpeg","image63.jpeg","image64.jpeg","image65.jpeg","image66.jpeg","image67.jpeg","image68.jpeg","image69.jpeg","image70.jpeg",
+    "image71.jpeg","image72.jpeg","image73.png","image74.jpeg","image75.jpeg","image76.jpeg","image77.jpeg","image78.png","image79.jpeg","image80.jpeg",
+    "image81.png","image82.png","image83.png","image84.png","image85.jpeg","image86.jpeg","image87.png","image88.png","image89.png","image90.png",
+    "image91.png"
+  ];
+  const gallery = document.getElementById("careerGallery");
+  if (!gallery) return;
+  files.forEach((f,idx) => {
+    const el = document.createElement("div");
+    el.className = "gallery-item reveal";
+    el.innerHTML = `<img src="${base}${f}" loading="lazy" alt="证明材料 ${idx+1}"><div class="gi-bar">${idx+1} / ${files.length}</div>`;
+    el.addEventListener("click", () => openLightbox(idx));
+    gallery.appendChild(el);
+  });
+
+  const lb = document.createElement("div");
+  lb.className = "lightbox";
+  lb.innerHTML = `<div class="close">✕</div><div class="nav prev">‹</div><div class="nav next">›</div><img src="" alt=""><div class="meta"></div>`;
+  document.body.appendChild(lb);
+  const lbImg = lb.querySelector("img");
+  const lbMeta = lb.querySelector(".meta");
+  let cur = 0;
+  function openLightbox(idx){
+    cur = idx;
+    lbImg.src = base + files[idx];
+    lbMeta.textContent = `${idx+1} / ${files.length}`;
+    lb.classList.add("show");
+  }
+  function closeLightbox(){ lb.classList.remove("show"); }
+  function navLightbox(dir){
+    cur = (cur + dir + files.length) % files.length;
+    lbImg.src = base + files[cur];
+    lbMeta.textContent = `${cur+1} / ${files.length}`;
+  }
+  lb.querySelector(".close").addEventListener("click", closeLightbox);
+  lb.querySelector(".prev").addEventListener("click", e => { e.stopPropagation(); navLightbox(-1); });
+  lb.querySelector(".next").addEventListener("click", e => { e.stopPropagation(); navLightbox(1); });
+  lb.addEventListener("click", e => { if (e.target === lb) closeLightbox(); });
+  addEventListener("keydown", e => {
+    if (!lb.classList.contains("show")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") navLightbox(-1);
+    if (e.key === "ArrowRight") navLightbox(1);
+  });
+})();
 </script>
 
 </body>
