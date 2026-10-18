@@ -232,20 +232,21 @@ h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
   .skill span:first-child{flex:0 0 110px;font-size:11.5px}
   #topBtn{right:16px;bottom:16px}
 }
-#about, #works, #work-exp, #campus {
+#hero, #works, #work-exp, #campus, #gallery {
   scroll-margin-top: 80px;
 }
 </style>
 </head>
 <body>
 
-<div class="ticker" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="cursor:pointer"><span class="pre">承接方向：</span>网络安全 · FDE 前沿部署 · 软件开发 · 小程序开发 · 网站开发 · 爬虫 · 其他计算机相关项目均可承接</div>
+<div class="ticker" id="hero" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="cursor:pointer"><span class="pre">承接方向：</span>网络安全 · FDE 前沿部署 · 软件开发 · 小程序开发 · 网站开发 · 爬虫 · 其他计算机相关项目均可承接</div>
 
 <nav>
   <div class="nav-inner">
     <span class="logo">ZJH<b>.</b></span>
     <div class="nav-links">
-      <a href="#about">关于我</a>
+      <a href="#hero">关于我</a>
+      <a href="#gallery">辅助证明材料</a>
       <a href="#works">作品</a>
       <a href="#work-exp">工作经历</a>
       <a href="#campus">校园经历</a>
@@ -731,7 +732,7 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
     const id = a.getAttribute('href').slice(1);
-    if (id === 'about') {
+    if (id === 'hero') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       history.replaceState(null, '', '#');
       return;
