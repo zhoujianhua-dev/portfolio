@@ -211,12 +211,14 @@ h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
 .gallery-item{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg2);cursor:zoom-in;transition:transform .2s,border-color .2s}
 .gallery-item:hover{transform:translateY(-2px);border-color:rgba(79,209,197,.45)}
 .gallery-item img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.gallery-item.rotated img{transform:rotate(90deg);transform-origin:center;width:auto;height:100%;object-fit:contain}
 .gallery-item .gi-bar{font-family:var(--mono);font-size:10px;color:var(--txt3);padding:6px 8px;background:var(--surface);border-top:1px solid var(--line);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 /* 灯箱 */
 .lightbox{position:fixed;inset:0;background:rgba(10,17,32,.92);z-index:100;display:none;align-items:center;justify-content:center;padding:24px}
 .lightbox.show{display:flex}
 .lightbox img{max-width:92vw;max-height:88vh;border-radius:14px;border:1px solid var(--line2);box-shadow:0 24px 70px rgba(0,0,0,.6);background:var(--bg)}
+.lightbox img.rotated{max-width:60vw;max-height:60vh;transform:rotate(90deg);transform-origin:center;object-fit:contain}
 .lightbox .close{position:absolute;top:18px;right:22px;font-size:26px;color:var(--txt);cursor:pointer;background:rgba(17,31,54,.6);border:1px solid var(--line);border-radius:10px;width:40px;height:40px;display:flex;align-items:center;justify-content:center}
 .lightbox .close:hover{color:#fff;border-color:var(--teal)}
 .lightbox .nav{position:absolute;top:50%;transform:translateY(-50%);font-size:30px;color:var(--txt);cursor:pointer;background:rgba(17,31,54,.6);border:1px solid var(--line);border-radius:10px;width:44px;height:44px;display:flex;align-items:center;justify-content:center}
@@ -823,7 +825,7 @@ tb.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
   if (!gallery) return;
   files.forEach((f,idx) => {
     const el = document.createElement("div");
-    el.className = "gallery-item";
+    el.className = "gallery-item" + (idx === 84 ? " rotated" : "");
     el.innerHTML = `<img src="${base}${f}" loading="lazy" alt="证明材料 ${idx+1}"><div class="gi-bar">${idx+1} / ${files.length}</div>`;
     el.addEventListener("click", () => openLightbox(idx));
     gallery.appendChild(el);
@@ -839,6 +841,7 @@ tb.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
   window.openLightbox = function(idx){
     cur = idx;
     lbImg.src = base + files[idx];
+    lbImg.className = idx === 84 ? "rotated" : "";
     lbMeta.textContent = `${idx+1} / ${files.length}`;
     lb.classList.add("show");
   };
@@ -846,6 +849,7 @@ tb.onclick = () => scrollTo({ top: 0, behavior: "smooth" });
   window.navLightbox = function(dir){
     cur = (cur + dir + files.length) % files.length;
     lbImg.src = base + files[cur];
+    lbImg.className = cur === 84 ? "rotated" : "";
     lbMeta.textContent = `${cur+1} / ${files.length}`;
   };
   lb.querySelector(".close").addEventListener("click", closeLightbox);
