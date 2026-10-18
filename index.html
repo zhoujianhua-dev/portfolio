@@ -731,6 +731,11 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     e.preventDefault();
     const id = a.getAttribute('href').slice(1);
+    if (id === 'about') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      history.replaceState(null, '', '#');
+      return;
+    }
     const el = document.getElementById(id);
     if (!el) return;
     const top = el.getBoundingClientRect().top + window.scrollY - 70;
