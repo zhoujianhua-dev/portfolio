@@ -192,6 +192,11 @@ h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
 .profile-card ul{list-style:none;display:flex;flex-direction:column;gap:6px}
 .profile-card li{font-size:13px;color:var(--txt2);padding-left:16px;position:relative}
 .profile-card li.strong{color:var(--txt);font-weight:700}
+.campus-row{display:flex;justify-content:space-between;align-items:center;margin:10px 0 6px;gap:12px}
+.campus-label{font-size:14px;color:var(--txt);font-weight:800;white-space:nowrap}
+.campus-val{font-size:14px;color:var(--txt);font-weight:800;text-align:right;white-space:nowrap}
+.campus-ul{list-style:none;display:flex;flex-direction:column;gap:6px;padding-left:0}
+.campus-ul li{font-size:13px;color:var(--txt2);padding-left:0;text-indent:0;position:relative;font-weight:700}
 .profile-card li::before{content:"›";position:absolute;left:0;color:var(--teal);font-weight:800}
 .profile-card li b{color:var(--txt)}
 .profile-card .meta{font-size:12.5px;color:var(--txt2);font-family:var(--mono);margin-top:2px;display:flex;justify-content:flex-start;align-items:center;gap:1.8em;font-weight:700;flex-wrap:wrap}
@@ -671,41 +676,64 @@ h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
       </ul>
     </div>
 
-    <!-- 校园经历补充 -->
     <div class="profile-card wide" style="margin-top:16px">
-      <h3>🏫 校园经历补充</h3>
-      <div class="sub-h">团学组织</div>
-      <ul>
-        <li>组织部副部</li>
-        <li>1、班团总负责人 2、通信网络支部学生联络人 3、负责全学院入党入团等工作</li>
-        <li>4、全院新发展团员总负责人,主导60余名团员发展 5、带领干事完成各项工作任务</li>
+      <div class="campus-row">
+        <span class="campus-label">团学组织</span>
+        <span class="campus-val">组织部副部</span>
+      </div>
+      <ul class="campus-ul">
+        <li>1、班团总负责人 &nbsp;&nbsp;&nbsp;&nbsp; 2、通信网络支部学生联络人 &nbsp;&nbsp;&nbsp;&nbsp; 3、负责全学院入党入团等工作</li>
+        <li>4、全院新发展团员总负责人,主导60余名团员发展 &nbsp;&nbsp;&nbsp;&nbsp; 5、带领干事完成各项工作任务</li>
       </ul>
-      <div class="sub-h">大学班级</div>
-      <ul>
-        <li>生活委员</li>
-        <li>管理班级经费等相关事项</li>
+    </div>
+
+    <div class="profile-card wide" style="margin-top:16px">
+      <div class="campus-row">
+        <span class="campus-label">大学班级</span>
+        <span class="campus-val">生活委员</span>
+      </div>
+      <ul class="campus-ul">
+        <li>管理班级经费等相关事项</li>
       </ul>
-      <div class="sub-h">暑期社会实践</div>
-      <ul>
-        <li>E•就通"红芯向党"实践队队员</li>
-        <li>荣获"潮风景出发吧"大学生暑期社会实践优秀案例征集活动(国家级一类)一等奖</li>
-        <li>荣获大学生社会实践"千校千项"网络展示活动(国家级一类)一等奖</li>
-        <li>入驻银坑村，进行暑期社会实践活动，开展防诈和红色宣讲及八段锦等多个活动</li>
+    </div>
+
+    <div class="profile-card wide" style="margin-top:16px">
+      <div class="campus-row">
+        <span class="campus-label">暑期社会实践</span>
+        <span class="campus-val">E•就通"红芯向党"实践队队员</span>
+      </div>
+      <ul class="campus-ul">
+        <li>荣获"潮风景出发吧"大学生暑期社会实践优秀案例征集活动(国家级一类)一等奖</li>
+        <li>荣获大学生社会实践"千校千项"网络展示活动(国家级一类)一等奖</li>
+        <li>入驻银坑村，进行暑期社会实践活动，开展防诈和红色宣讲及八段锦等多个活动</li>
       </ul>
-      <div class="sub-h">大学小班</div>
-      <ul>
-        <li>班主任助理</li>
-        <li>协助老师选拔班委，策划开展班级新生见面会，辅助新生军训，召开新生班会，小班多数成员成功进入学院团学组织及学院工作室等等</li>
+    </div>
+
+    <div class="profile-card wide" style="margin-top:16px">
+      <div class="campus-row">
+        <span class="campus-label">大学小班</span>
+        <span class="campus-val">班主任助理</span>
+      </div>
+      <ul class="campus-ul">
+        <li>协助老师选拔班委，策划开展班级新生见面会，辅助新生军训，召开新生班会，小班多数成员成功进入学院团学组织及学院工作室等等</li>
       </ul>
-      <div class="sub-h">校新质人才创新实验班</div>
-      <ul>
-        <li>组织委员</li>
+    </div>
+
+    <div class="profile-card wide" style="margin-top:16px">
+      <div class="campus-row">
+        <span class="campus-label">校新质人才创新实验班</span>
+        <span class="campus-val">组织委员</span>
+      </div>
+      <ul class="campus-ul">
         <li>协助新质人才创新实验班相关事项的开展</li>
       </ul>
-      <div class="sub-h">信息安全创新实验室</div>
-      <ul>
-        <li><span style="font-weight:800;color:var(--txt);">实验室成员</span></li>
-      </ul>
+    </div>
+
+    <div class="profile-card wide" style="margin-top:16px">
+      <div class="campus-row">
+        <span class="campus-label">信息安全创新实验室</span>
+        <span class="campus-val" style="font-weight:800;color:var(--txt);">实验室成员</span>
+      </div>
     </div>
 
     <!-- 志愿时长 -->
