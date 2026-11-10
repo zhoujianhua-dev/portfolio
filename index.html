@@ -24,6 +24,8 @@ body{background:var(--bg);color:var(--txt);font-family:"PingFang SC","Microsoft 
 .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
 a{color:var(--teal);text-decoration:none;transition:color .2s}
 a:hover{color:#8FE8DF}
+a .ext-arrow{font-size:.85em;opacity:.7;transition:opacity .2s,transform .2s}
+a:hover .ext-arrow{opacity:1;transform:translate(1px,-1px)}
 ::selection{background:rgba(79,209,197,.25)}
 ::-webkit-scrollbar{width:10px}
 ::-webkit-scrollbar-track{background:var(--bg)}
@@ -68,11 +70,15 @@ h1 .accent{background:linear-gradient(95deg,#4FD1C5 10%,#8FE8DF 55%,#E8B45A 110%
 .badge{font-family:var(--mono);font-size:11.5px;color:var(--amber);border:1px solid rgba(232,180,90,.4);background:rgba(232,180,90,.07);padding:4px 12px;border-radius:20px}
 .badge.teal{color:var(--teal);border-color:rgba(79,209,197,.4);background:var(--teal-dim)}
 .hero-cta{display:flex;gap:12px;margin-top:26px;animation:fadeUp .7s .45s both}
-.cta{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:12px 26px;border-radius:11px;transition:all .2s}
+.cta{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:12px 26px;border-radius:11px;transition:all .2s;position:relative}
 .cta.primary{background:linear-gradient(135deg,#1A6E66,#2FB5AA);color:#fff;box-shadow:0 4px 22px rgba(47,181,170,.28)}
 .cta.primary:hover{filter:brightness(1.12);transform:translateY(-2px)}
+.cta.primary .arrow{display:inline-block;transition:transform .2s}
+.cta.primary:hover .arrow{transform:translateY(3px)}
 .cta.ghost{border:1px solid var(--line2);color:var(--txt)}
 .cta.ghost:hover{border-color:var(--teal);color:#fff;transform:translateY(-2px)}
+.cta.ghost .arrow{display:inline-block;transition:transform .2s}
+.cta.ghost:hover .arrow{transform:translateY(3px)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
 /* ===== 终端卡 ===== */
@@ -166,7 +172,7 @@ h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
 .job ul{margin-top:10px;list-style:none;display:flex;flex-direction:column;gap:6px;padding-left:0}
 .job li{font-size:13px;color:var(--txt2);padding-left:0;text-indent:0;position:relative;font-weight:700}
 .job li.pre{padding-left:4.2em;text-indent:-4.2em}
-.job li::before{content:"›";position:absolute;left:-18px;color:var(--teal);font-weight:800}
+.job li::before{content:"▸";position:absolute;left:-22px;color:var(--teal);font-weight:800;font-size:14px;line-height:1.6}
 .job li b{color:var(--txt)}
 .job .meta{font-size:13px;color:var(--txt2);margin-top:8px;font-weight:700}
 
@@ -197,7 +203,7 @@ h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
 .campus-val{font-size:14px;color:var(--txt);font-weight:800;text-align:right;white-space:nowrap}
 .campus-ul{list-style:none;display:flex;flex-direction:column;gap:6px;padding-left:0}
 .campus-ul li{font-size:13px;color:var(--txt2);padding-left:0;text-indent:0;position:relative;font-weight:700}
-.profile-card li::before{content:"›";position:absolute;left:0;color:var(--teal);font-weight:800}
+.profile-card li::before{content:"▸";position:absolute;left:0;color:var(--teal);font-weight:800;font-size:13px}
 .profile-card li b{color:var(--txt)}
 .profile-card .meta{font-size:12.5px;color:var(--txt2);font-family:var(--mono);margin-top:2px;display:flex;justify-content:flex-start;align-items:center;gap:1.8em;font-weight:700;flex-wrap:wrap}
 .vol-big{font-family:var(--mono);font-size:28px;color:var(--teal);font-weight:800;margin-bottom:4px}
@@ -224,6 +230,11 @@ h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
 .lightbox .prev{left:18px}
 .lightbox .next{right:18px}
 .lightbox .meta{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:12px;color:var(--txt3);background:rgba(17,31,54,.6);border:1px solid var(--line);border-radius:10px;padding:6px 14px}
+
+/* ===== 回到顶部按钮 ===== */
+#topBtn{position:fixed;right:22px;bottom:22px;z-index:90;width:42px;height:42px;border-radius:50%;border:1px solid var(--line2);background:var(--surface);color:var(--teal);font-size:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:translateY(10px);pointer-events:none;transition:all .3s;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+#topBtn.show{opacity:1;transform:translateY(0);pointer-events:auto}
+#topBtn:hover{background:var(--teal);color:var(--bg);border-color:var(--teal);transform:translateY(-2px);box-shadow:0 6px 20px rgba(79,209,197,.35)}
 
 /* ===== 滚动入场 ===== */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
@@ -258,7 +269,7 @@ h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
       <a href="#work-exp">工项履历</a>
       <a href="#campus">校园经历</a>
       <a href="#gallery">辅助证明材料</a>
-      <a class="gh" href="https://github.com/zhoujianhua-dev" target="_blank" rel="noopener">GitHub ↗</a>
+      <a class="gh" href="https://github.com/zhoujianhua-dev" target="_blank" rel="noopener">GitHub <span class="ext-arrow">↗</span></a>
     </div>
   </div>
 </nav>
@@ -278,7 +289,7 @@ h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
       <span class="badge">Python · Flask · FastAPI</span>
     </div>
     <div class="hero-cta">
-      <a class="cta primary" href="#works">查看我的作品 ↓</a>
+      <a class="cta primary" href="#works">查看我的作品 <span class="arrow">↓</span></a>
       <a class="cta ghost" href="assets/resume-zhoujianhua-v5.pdf" target="_blank" rel="noopener">📄 下载简历 PDF</a>
       <a class="cta ghost" href="https://github.com/zhoujianhua-dev" target="_blank" rel="noopener">GitHub 主页</a>
     </div>
