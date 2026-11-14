@@ -50,6 +50,7 @@ nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop
 .nav-links a.active::after{content:"";display:block;height:2px;margin:2px 4px 0;border-radius:2px;background:var(--teal)}
 .nav-links .gh{font-family:var(--mono);font-size:12.5px;color:var(--amber);border:1px solid rgba(232,180,90,.4);padding:4px 12px;border-radius:20px}
 .nav-links .gh:hover{background:rgba(232,180,90,.08);color:var(--amber)}
+.menu-toggle{display:none;background:none;border:1px solid var(--line2);color:var(--teal);font-size:22px;width:38px;height:38px;border-radius:10px;align-items:center;justify-content:center;cursor:pointer}
 
 /* ===== Hero ===== */
 .hero{padding:86px 0 54px;position:relative;overflow:hidden}
@@ -244,8 +245,10 @@ h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
   .duo{grid-template-columns:1fr}
   .work{padding:20px 18px}
   .job{padding:18px 16px}
-  .nav-links{gap:14px}
-  .nav-links a:not(.gh){display:none}
+  .nav-links{position:absolute;top:58px;left:0;right:0;background:rgba(10,17,32,.96);border-bottom:1px solid var(--line);padding:10px 28px;gap:14px;flex-direction:column;align-items:stretch;display:none;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  .nav-links.show{display:flex}
+  .nav-links a:not(.gh){display:block}
+  .menu-toggle{display:flex}
   .logo{font-size:17px}
   .ticker{font-size:10.5px}
   .skill span:first-child{flex:0 0 110px;font-size:11.5px}
@@ -263,7 +266,7 @@ h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
 <nav>
   <div class="nav-inner">
     <span class="logo">ZJH<b>.</b></span>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="#hero">关于我</a>
       <a href="#works">作品与项目</a>
       <a href="#work-exp">工项履历</a>
@@ -271,6 +274,7 @@ h2{font-size:clamp(20px,2.6vw,26px);font-weight:800}
       <a href="#gallery">辅助证明材料</a>
       <a class="gh" href="https://github.com/zhoujianhua-dev" target="_blank" rel="noopener">GitHub <span class="ext-arrow">↗</span></a>
     </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单">☰</button>
   </div>
 </nav>
 
@@ -816,6 +820,25 @@ document.querySelectorAll('.nav-links a[href^="#"]').forEach(a => {
     history.replaceState(null, '', '#' + id);
   });
 });
+
+// 手机端菜单切换
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('show');
+    menuToggle.textContent = open ? '✕' : '☰';
+    menuToggle.setAttribute('aria-label', open ? '关闭菜单' : '菜单');
+  });
+  // 点击链接后自动收起菜单
+  navLinks.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('show');
+      menuToggle.textContent = '☰';
+      menuToggle.setAttribute('aria-label', '菜单');
+    });
+  });
+}
 
 const tb = document.getElementById("topBtn");
 addEventListener("scroll", () => tb.classList.toggle("show", scrollY > 500), { passive: true });
